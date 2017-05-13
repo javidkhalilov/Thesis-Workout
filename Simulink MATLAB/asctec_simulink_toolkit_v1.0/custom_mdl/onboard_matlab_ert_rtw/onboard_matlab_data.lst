@@ -1,0 +1,53 @@
+   1              		.file	"onboard_matlab_data.c"
+   9              	.Ltext0:
+  10              		.global	onboard_matlab_ConstB
+  11              		.section	.rodata
+  12              		.align	2
+  15              	onboard_matlab_ConstB:
+  16 0000 0004     		.short	1024
+  17 0002 0004     		.short	1024
+  18 0004 0004     		.short	1024
+  19 0006 0004     		.short	1024
+  20 0008 0006     		.short	1536
+  21 000a 0008     		.short	2048
+  22 000c 0008     		.short	2048
+  23 000e 0008     		.short	2048
+  24 0010 0008     		.short	2048
+  25 0012 0008     		.short	2048
+  26 0014 000A     		.short	2560
+  27 0016 000A     		.short	2560
+  28 0018 000A     		.short	2560
+  29 001a 000A     		.short	2560
+  30 001c 000A     		.short	2560
+  31 001e 000A     		.short	2560
+  32 0020 000A     		.short	2560
+  33 0022 000A     		.short	2560
+  34 0024 000A     		.short	2560
+  35 0026 000A     		.short	2560
+  36              		.global	onboard_matlab_ConstP
+  37              		.align	2
+  40              	onboard_matlab_ConstP:
+  41 0028 00000000 		.word	0
+  42 002c 00000000 		.word	0
+  43 0030 00000000 		.word	0
+  44 0034 00640000 		.word	25600
+  45 0038 7F6ABC74 		.word	1958505087
+  46 003c 93180400 		.word	268435
+  47 0040 0100     		.short	1
+  48 0042 0200     		.short	2
+  49 0044 0300     		.short	3
+  50 0046 0400     		.short	4
+  51 0048 0500     		.short	5
+  52 004a 0000     		.space	2
+  53              		.file 1 "../custom_mdl/onboard_matlab_ert_rtw/onboard_matlab_data.c"
+  54              		.file 2 "../custom_mdl/onboard_matlab_ert_rtw/onboard_matlab.h"
+  55              		.file 3 "../custom_mdl/onboard_matlab_ert_rtw/rtwtypes.h"
+  56              		.text
+  57              	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 onboard_matlab_data.c
+C:\Users\Javid\AppData\Local\Temp/cc0scaaa.s:15     .rodata:00000000 onboard_matlab_ConstB
+C:\Users\Javid\AppData\Local\Temp/cc0scaaa.s:40     .rodata:00000028 onboard_matlab_ConstP
+C:\Users\Javid\AppData\Local\Temp/cc0scaaa.s:41     .rodata:00000028 $d
+
+NO UNDEFINED SYMBOLS

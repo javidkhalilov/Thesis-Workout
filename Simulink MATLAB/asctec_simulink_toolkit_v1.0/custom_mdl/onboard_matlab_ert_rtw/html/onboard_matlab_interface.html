@@ -1,0 +1,185 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link rel="stylesheet" type="text/css" href="rtwreport.css" /><script language="JavaScript" type="text/javascript">function rtwTableShrink(o) {var t = o.nextSibling;if (t.nodeType != 1) {t = t.nextSibling;}if (t.style.display == "none") {t.style.display = "";o.innerHTML = "[-]"} else {t.style.display = "none";o.innerHTML = "[+] ... "}}</script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Code Interface Report for onboard_matlab</title>
+</head>
+<body ONLOAD="try {if (top) {if (top.rtwPageOnLoad) top.rtwPageOnLoad('rtwIdCodeInterface'); else local_onload();}} catch(err) {};"><h1>Code Interface Report for onboard_matlab</h1>
+<h3>Table of Contents</h3>
+<ul><li><a href="#sec_Entry_Point_Functions">Entry Point Functions</a>
+</li>
+<li><a href="#sec_Inports">Inports</a>
+</li>
+<li><a href="#sec_Outports">Outports</a>
+</li>
+<li><a href="#sec_Interface_Parameters">Interface Parameters</a>
+</li>
+<li><a href="#sec_Data_Stores">Data Stores</a>
+</li>
+</ul>
+<h3><a name="sec_Entry_Point_Functions">Entry Point Functions</a>
+</h3>
+<p align="left">Function: <a href="onboard_matlab_c.html#fcn_onboard_matlab_initialize">onboard_matlab_initialize</a></p>
+<table width="100%" class="AltRow" cellspacing="0"><tr class="even"><td width="25%" align="left">Prototype</td>
+<td width="75%" align="left"><b>void onboard_matlab_initialize(void)</b>
+</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Description</td>
+<td width="75%" align="left">Initialization entry point of generated code</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Timing</td>
+<td width="75%" align="left">Called once</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Arguments</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Return value</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Header file</td>
+<td width="75%" align="left"><a href="onboard_matlab_h.html">onboard_matlab.h</a></td>
+</tr>
+</table>
+<p align="left">Function: <a href="onboard_matlab_c.html#fcn_onboard_matlab_step0">onboard_matlab_step0</a></p>
+<table width="100%" class="AltRow" cellspacing="0"><tr class="even"><td width="25%" align="left">Prototype</td>
+<td width="75%" align="left"><b>void onboard_matlab_step0(void)</b>
+</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Description</td>
+<td width="75%" align="left">Output entry point of generated code</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Timing</td>
+<td width="75%" align="left">Called periodically, every 0.001 seconds</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Arguments</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Return value</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Header file</td>
+<td width="75%" align="left"><a href="onboard_matlab_h.html">onboard_matlab.h</a></td>
+</tr>
+</table>
+<p align="left">Function: <a href="onboard_matlab_c.html#fcn_onboard_matlab_step1">onboard_matlab_step1</a></p>
+<table width="100%" class="AltRow" cellspacing="0"><tr class="even"><td width="25%" align="left">Prototype</td>
+<td width="75%" align="left"><b>void onboard_matlab_step1(void)</b>
+</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Description</td>
+<td width="75%" align="left">Output entry point of generated code</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Timing</td>
+<td width="75%" align="left">Called periodically, every 0.002 seconds</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Arguments</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="even"><td width="25%" align="left">Return value</td>
+<td width="75%" align="left">None</td>
+</tr>
+<tr class="odd"><td width="25%" align="left">Header file</td>
+<td width="75%" align="left"><a href="onboard_matlab_h.html">onboard_matlab.h</a></td>
+</tr>
+</table>
+<h3><a name="sec_Inports">Inports</a>
+</h3>
+<span title="Click to shrink or expand table" onclick="rtwTableShrink(this)">[-]</span><table width="100%" class="AltRow FirstColumn" cellspacing="0"><tr class="heading"><td width="40%" align="left"><b>Block Name</b>
+</td>
+<td width="25%" align="left"><b>Code Identifier</b>
+</td>
+<td width="25%" align="left"><b>Data Type</b>
+</td>
+<td width="10%" align="right"><b>Dimension</b>
+</td>
+</tr>
+<tr class="even"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','onboard_matlab:1')" name="code2model" class="code2model">&lt;Root&gt;/IMU_Data_In</a></td>
+<td width="25%" align="left">onboard_matlab_U.IMU_Data_In</td>
+<td width="25%" align="left">IMU_DATA_IN</td>
+<td width="10%" align="right">1</td>
+</tr>
+<tr class="odd"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','onboard_matlab:3')" name="code2model" class="code2model">&lt;Root&gt;/GPS_Data_In</a></td>
+<td width="25%" align="left">onboard_matlab_U.GPS_Data_In</td>
+<td width="25%" align="left">GPS_DATA_IN</td>
+<td width="10%" align="right">1</td>
+</tr>
+<tr class="even"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','onboard_matlab:2')" name="code2model" class="code2model">&lt;Root&gt;/RC_Data_In</a></td>
+<td width="25%" align="left">onboard_matlab_U.RC_Data_In</td>
+<td width="25%" align="left">RC_DATA_IN</td>
+<td width="10%" align="right">1</td>
+</tr>
+<tr class="odd"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','onboard_matlab:7387')" name="code2model" class="code2model">&lt;Root&gt;/UART_Data_In</a></td>
+<td width="25%" align="left">onboard_matlab_U.UART_Data_In</td>
+<td width="25%" align="left">UART_DATA_IN</td>
+<td width="10%" align="right">1</td>
+</tr>
+<tr class="even"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','onboard_matlab:8005')" name="code2model" class="code2model">&lt;Root&gt;/MOTOR_Data_In</a></td>
+<td width="25%" align="left">onboard_matlab_U.MOTOR_Data_In</td>
+<td width="25%" align="left">MOTOR_DATA_IN</td>
+<td width="10%" align="right">1</td>
+</tr>
+</table>
+<h3><a name="sec_Outports">Outports</a>
+</h3>
+<span title="Click to shrink or expand table" onclick="rtwTableShrink(this)">[-]</span><table width="100%" class="AltRow FirstColumn" cellspacing="0"><tr class="heading"><td width="40%" align="left"><b>Block Name</b>
+</td>
+<td width="25%" align="left"><b>Code Identifier</b>
+</td>
+<td width="25%" align="left"><b>Data Type</b>
+</td>
+<td width="10%" align="right"><b>Dimension</b>
+</td>
+</tr>
+<tr class="even"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','onboard_matlab:1094')" name="code2model" class="code2model">&lt;Root&gt;/LL_CMD_Out</a></td>
+<td width="25%" align="left">onboard_matlab_Y.LL_CMD_Out</td>
+<td width="25%" align="left">LL_CMD_OUT</td>
+<td width="10%" align="right">1</td>
+</tr>
+<tr class="odd"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','onboard_matlab:8219')" name="code2model" class="code2model">&lt;Root&gt;/CTRL_mode</a></td>
+<td width="25%" align="left">onboard_matlab_Y.CTRL_mode</td>
+<td width="25%" align="left">CTRL_MODE</td>
+<td width="10%" align="right">1</td>
+</tr>
+<tr class="even"><td width="40%" align="left"><a href="matlab:rtwprivate('code2model','onboard_matlab:7549')" name="code2model" class="code2model">&lt;Root&gt;/UART_Data_Out</a></td>
+<td width="25%" align="left">onboard_matlab_Y.UART_Data_Out</td>
+<td width="25%" align="left">UART_DATA_OUT</td>
+<td width="10%" align="right">1</td>
+</tr>
+</table>
+<h3><a name="sec_Interface_Parameters">Interface Parameters</a>
+</h3>
+<span title="Click to shrink or expand table" onclick="rtwTableShrink(this)">[-]</span><table width="100%" class="AltRow FirstColumn" cellspacing="0"><tr class="heading"><td width="40%" align="left"><b>Parameter Source</b>
+</td>
+<td width="25%" align="left"><b>Code Identifier</b>
+</td>
+<td width="25%" align="left"><b>Data Type</b>
+</td>
+<td width="10%" align="right"><b>Dimension</b>
+</td>
+</tr>
+<tr class="even"><td width="40%" align="left">uart_up_p_10</td>
+<td width="25%" align="left"><i>Imported data:</i>
+uart_up_p_10</td>
+<td width="25%" align="left">int32_T</td>
+<td width="10%" align="right">1</td>
+</tr>
+<tr class="odd"><td width="40%" align="left">uart_up_p_11</td>
+<td width="25%" align="left"><i>Imported data:</i>
+uart_up_p_11</td>
+<td width="25%" align="left">int32_T</td>
+<td width="10%" align="right">1</td>
+</tr>
+<tr class="even"><td width="40%" align="left">uart_up_p_12</td>
+<td width="25%" align="left"><i>Imported data:</i>
+uart_up_p_12</td>
+<td width="25%" align="left">int32_T</td>
+<td width="10%" align="right">1</td>
+</tr>
+<tr class="odd"><td width="40%" align="left">uart_up_p_14</td>
+<td width="25%" align="left"><i>Imported data:</i>
+uart_up_p_14</td>
+<td width="25%" align="left">int32_T</td>
+<td width="10%" align="right">1</td>
+</tr>
+</table>
+<h3><a name="sec_Data_Stores">Data Stores</a>
+</h3>
+<p align="left">No data stores in the model; note that this report lists only data stores with non-auto storage class and global data stores</p>
+</body>
+</html>

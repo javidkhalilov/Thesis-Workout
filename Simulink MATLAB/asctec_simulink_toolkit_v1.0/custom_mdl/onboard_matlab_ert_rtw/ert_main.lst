@@ -1,0 +1,1377 @@
+   1              		.file	"ert_main.c"
+   9              	.Ltext0:
+  10              		.align	2
+  11              		.global	rt_OneStep
+  13              	rt_OneStep:
+  14              	.LFB2:
+  15              		.file 1 "../custom_mdl/onboard_matlab_ert_rtw/ert_main.c"
+   1:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** /*
+   2:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * File: ert_main.c
+   3:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  *
+   4:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * Code generated for Simulink model 'onboard_matlab'.
+   5:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  *
+   6:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * Model version                  : 1.1561
+   7:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * Simulink Coder version         : 8.4 (R2013a) 13-Feb-2013
+   8:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * TLC version                    : 8.4 (Jan 19 2013)
+   9:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * C/C++ source code generated on : Thu Feb 04 00:10:56 2016
+  10:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  *
+  11:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * Target selection: ert.tlc
+  12:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * Embedded hardware selection: ARM Compatible->ARM 7
+  13:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * Code generation objectives: Unspecified
+  14:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  * Validation result: Not run
+  15:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****  */
+  16:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  17:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** #include "onboard_matlab.h"
+  18:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  19:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** /****************** include sdk header files ******************/
+  20:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** #include "main.h"
+  21:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** #include "sdk.h"
+  22:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** #include "uart.h"
+  23:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  24:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** /************************************/
+  25:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  26:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** /****************** declare uart up channels ******************/
+  27:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_01 = 0;             // Variable: uart_up_p_01
+  28:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_02 = 0;             // Variable: uart_up_p_02
+  29:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_03 = 0;             // Variable: uart_up_p_03
+  30:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_04 = 0;             // Variable: uart_up_p_04
+  31:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_05 = 0;             // Variable: uart_up_p_05
+  32:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_06 = 0;             // Variable: uart_up_p_06
+  33:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_07 = 0;             // Variable: uart_up_p_07
+  34:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_08 = 0;             // Variable: uart_up_p_08
+  35:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_09 = 0;             // Variable: uart_up_p_09
+  36:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_10 = 0;             // Variable: uart_up_p_10
+  37:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_11 = 0;             // Variable: uart_up_p_11
+  38:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_12 = 0;             // Variable: uart_up_p_12
+  39:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_13 = 0;             // Variable: uart_up_p_13
+  40:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_14 = 0;             // Variable: uart_up_p_14
+  41:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_15 = 0;             // Variable: uart_up_p_15
+  42:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_16 = 0;             // Variable: uart_up_p_16
+  43:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_17 = 0;             // Variable: uart_up_p_17
+  44:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_18 = 0;             // Variable: uart_up_p_18
+  45:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_19 = 0;             // Variable: uart_up_p_19
+  46:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_20 = 0;             // Variable: uart_up_p_20
+  47:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_21 = 0;             // Variable: uart_up_p_21
+  48:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_22 = 0;             // Variable: uart_up_p_22
+  49:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_23 = 0;             // Variable: uart_up_p_23
+  50:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_24 = 0;             // Variable: uart_up_p_24
+  51:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_25 = 0;             // Variable: uart_up_p_25
+  52:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_26 = 0;             // Variable: uart_up_p_26
+  53:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_27 = 0;             // Variable: uart_up_p_27
+  54:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_28 = 0;             // Variable: uart_up_p_28
+  55:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_29 = 0;             // Variable: uart_up_p_29
+  56:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_30 = 0;             // Variable: uart_up_p_30
+  57:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_31 = 0;             // Variable: uart_up_p_31
+  58:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_32 = 0;             // Variable: uart_up_p_32
+  59:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_33 = 0;             // Variable: uart_up_p_33
+  60:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_34 = 0;             // Variable: uart_up_p_34
+  61:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_35 = 0;             // Variable: uart_up_p_35
+  62:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_36 = 0;             // Variable: uart_up_p_36
+  63:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_37 = 0;             // Variable: uart_up_p_37
+  64:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_38 = 0;             // Variable: uart_up_p_38
+  65:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_39 = 0;             // Variable: uart_up_p_39
+  66:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** uint32_T uart_up_p_40 = 0;             // Variable: uart_up_p_40
+  67:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  68:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** /************************************/
+  69:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** void rt_OneStep(void)
+  70:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** {
+  16              	 Function supports interworking.
+  17              		@ args = 0, pretend = 0, frame = 56
+  18              		@ frame_needed = 0, uses_anonymous_args = 0
+  19              		stmfd	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+  20 0000 F04F2DE9 	.LCFI0:
+  21              		.loc 1 80 0
+  71:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   static boolean_T OverrunFlags[2] = { 0, 0 };
+  72:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  73:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   static boolean_T eventFlags[2] = { 0, 0 };/* Model has 2 rates */
+  74:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  75:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   static int_T taskCounter[2] = { 0, 0 };
+  76:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  77:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Disable interrupts here */
+  78:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  79:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Check base rate for overrun */
+  80:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   if (OverrunFlags[0]++) {
+  22              	0, .L16
+  23 0004 54069FE5 		ldrb	r3, [r0, #0]	@ zero_extendqisi2
+  24 0008 0030D0E5 		add	r3, r3, #1
+  25 000c 013083E2 		and	r3, r3, #255
+  26 0010 FF3003E2 		.loc 1 70 0
+  27              		sub	sp, sp, #56
+  28 0014 38D04DE2 	.LCFI1:
+  29              		.loc 1 80 0
+  30              		cmp	r3, #1
+  31 0018 010053E3 		str	r3, [sp, #52]
+  32 001c 34308DE5 		strb	r3, [r0, #0]
+  33 0020 0030C0E5 		beq	.L14
+  34 0024 0200000A 	.L12:
+  35              		.loc 1 310 0
+  81:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     ((void) 0);
+  82:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     return;
+  83:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   }
+  84:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  85:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Save FPU context here (if necessary) */
+  86:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Re-enable timer or interrupt here */
+  87:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /****************** get Inputs ******************/
+  88:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /****************** get RC-Inputs ******************/
+  89:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.RC_Data_In.CMD_1 = ((short) RO_ALL_Data.channel[0] - 2048)*8;
+  90:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.RC_Data_In.CMD_2 = ((short) RO_ALL_Data.channel[1] - 2048)*8;
+  91:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.RC_Data_In.CMD_3 = ((short) RO_ALL_Data.channel[2] - 2048)*8;
+  92:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.RC_Data_In.CMD_4 = ((short) RO_ALL_Data.channel[3] - 2048)*8;
+  93:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.RC_Data_In.CMD_5 = ((short) RO_ALL_Data.channel[4] - 2048)*8;
+  94:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.RC_Data_In.CMD_6 = ((short) RO_ALL_Data.channel[5] - 2048)*8;
+  95:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.RC_Data_In.CMD_7 = ((short) RO_ALL_Data.channel[6] - 2048)*8;
+  96:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.RC_Data_In.CMD_8 = ((short) RO_ALL_Data.channel[7] - 2048)*8;
+  97:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+  98:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /****************** get IMU Data ******************/
+  99:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.angle_pitch = RO_ALL_Data.angle_pitch;
+ 100:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.angle_roll = RO_ALL_Data.angle_roll;
+ 101:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.angle_yaw = RO_ALL_Data.angle_yaw;
+ 102:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.angvel_pitch = RO_ALL_Data.angvel_pitch;
+ 103:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.angvel_roll = RO_ALL_Data.angvel_roll;
+ 104:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.angvel_yaw = RO_ALL_Data.angvel_yaw;
+ 105:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.acc_x = RO_ALL_Data.acc_x;
+ 106:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.acc_y = RO_ALL_Data.acc_y;
+ 107:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.acc_z = RO_ALL_Data.acc_z;
+ 108:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.Hx = RO_ALL_Data.Hx;
+ 109:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.Hy = RO_ALL_Data.Hy;
+ 110:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.Hz = RO_ALL_Data.Hz;
+ 111:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.height_data_fusion = RO_ALL_Data.fusion_height;
+ 112:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.dheight_data_fusion = RO_ALL_Data.fusion_dheight;
+ 113:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.data_fusion_speed_EW = RO_ALL_Data.fusion_speed_x;
+ 114:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.data_fusion_speed_NS = RO_ALL_Data.fusion_speed_y;
+ 115:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.gps_latitude_data_fusion =
+ 116:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     RO_ALL_Data.fusion_latitude;
+ 117:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.IMU_Data_In.gps_longitude_data_fusion =
+ 118:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     RO_ALL_Data.fusion_longitude;
+ 119:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 120:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /****************** get Motor Data ******************/
+ 121:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.MOTOR_Data_In.m1 = RO_ALL_Data.motor_rpm[0];
+ 122:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.MOTOR_Data_In.m2 = RO_ALL_Data.motor_rpm[1];
+ 123:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.MOTOR_Data_In.m3 = RO_ALL_Data.motor_rpm[2];
+ 124:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.MOTOR_Data_In.m4 = RO_ALL_Data.motor_rpm[3];
+ 125:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.MOTOR_Data_In.m5 = RO_ALL_Data.motor_rpm[4];
+ 126:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.MOTOR_Data_In.m6 = RO_ALL_Data.motor_rpm[5];
+ 127:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 128:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /****************** get Uart Params ******************/
+ 129:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_01 = matlab_params.p01;
+ 130:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_02 = matlab_params.p02;
+ 131:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_03 = matlab_params.p03;
+ 132:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_04 = matlab_params.p04;
+ 133:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_05 = matlab_params.p05;
+ 134:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_06 = matlab_params.p06;
+ 135:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_07 = matlab_params.p07;
+ 136:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_08 = matlab_params.p08;
+ 137:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_09 = matlab_params.p09;
+ 138:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_10 = matlab_params.p10;
+ 139:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_11 = matlab_params.p11;
+ 140:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_12 = matlab_params.p12;
+ 141:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_13 = matlab_params.p13;
+ 142:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_14 = matlab_params.p14;
+ 143:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_15 = matlab_params.p15;
+ 144:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_16 = matlab_params.p16;
+ 145:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_17 = matlab_params.p17;
+ 146:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_18 = matlab_params.p18;
+ 147:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_19 = matlab_params.p19;
+ 148:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_20 = matlab_params.p20;
+ 149:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_21 = matlab_params.p21;
+ 150:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_22 = matlab_params.p22;
+ 151:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_23 = matlab_params.p23;
+ 152:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_24 = matlab_params.p24;
+ 153:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_25 = matlab_params.p25;
+ 154:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_26 = matlab_params.p26;
+ 155:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_27 = matlab_params.p27;
+ 156:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_28 = matlab_params.p28;
+ 157:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_29 = matlab_params.p29;
+ 158:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_30 = matlab_params.p30;
+ 159:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_31 = matlab_params.p31;
+ 160:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_32 = matlab_params.p32;
+ 161:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_33 = matlab_params.p33;
+ 162:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_34 = matlab_params.p34;
+ 163:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_35 = matlab_params.p35;
+ 164:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_36 = matlab_params.p36;
+ 165:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_37 = matlab_params.p37;
+ 166:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_38 = matlab_params.p38;
+ 167:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_39 = matlab_params.p39;
+ 168:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   uart_up_p_40 = matlab_params.p40;
+ 169:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 170:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /****************** get Uart Ctrl ******************/
+ 171:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_01 = matlab_uart.ctrl01;
+ 172:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_02 = matlab_uart.ctrl02;
+ 173:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_03 = matlab_uart.ctrl03;
+ 174:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_04 = matlab_uart.ctrl04;
+ 175:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_05 = matlab_uart.ctrl05;
+ 176:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_06 = matlab_uart.ctrl06;
+ 177:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_07 = matlab_uart.ctrl07;
+ 178:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_08 = matlab_uart.ctrl08;
+ 179:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_09 = matlab_uart.ctrl09;
+ 180:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_10 = matlab_uart.ctrl10;
+ 181:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_11 = matlab_uart.ctrl11;
+ 182:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.UART_Data_In.uart_ctrl_12 = matlab_uart.ctrl12;
+ 183:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 184:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /****************** get GPS-Data ******************/
+ 185:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_latitude = RO_ALL_Data.GPS_latitude;
+ 186:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_longitude = RO_ALL_Data.GPS_longitude;
+ 187:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_height = RO_ALL_Data.GPS_height;
+ 188:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_speed_EW = RO_ALL_Data.GPS_speed_x;
+ 189:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_speed_NS = RO_ALL_Data.GPS_speed_y;
+ 190:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_heading = RO_ALL_Data.GPS_heading;
+ 191:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_position_acc =
+ 192:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     RO_ALL_Data.GPS_position_accuracy;
+ 193:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_height_acc = RO_ALL_Data.GPS_height_accuracy;
+ 194:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_speed_acc = RO_ALL_Data.GPS_speed_accuracy;
+ 195:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_num_sat = RO_ALL_Data.GPS_sat_num;
+ 196:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_status = RO_ALL_Data.GPS_status;
+ 197:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_time_of_week = RO_ALL_Data.GPS_time_of_week;
+ 198:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_U.GPS_Data_In.gps_time_week = RO_ALL_Data.GPS_week;
+ 199:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 200:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /***************** end inputs *******************/
+ 201:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 202:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Check subrate overrun, set rates that need to run this time step*/
+ 203:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   if (taskCounter[1] == 0) {
+ 204:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     if (eventFlags[1]) {
+ 205:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****       OverrunFlags[0] = FALSE;
+ 206:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****       OverrunFlags[1] = TRUE;
+ 207:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****       return;
+ 208:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     }
+ 209:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 210:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     eventFlags[1] = TRUE;
+ 211:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   }
+ 212:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 213:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   taskCounter[1]++;
+ 214:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   if (taskCounter[1] == 2) {
+ 215:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     taskCounter[1]= 0;
+ 216:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   }
+ 217:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 218:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Step the model for base rate */
+ 219:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   onboard_matlab_step0();
+ 220:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 221:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Get model outputs here */
+ 222:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 223:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /****************** write LL commands ******************/
+ 224:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_SDK.ctrl_mode = onboard_matlab_Y.CTRL_mode.ctrl_mode;
+ 225:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_SDK.ctrl_enabled = onboard_matlab_Y.CTRL_mode.ctrl_enabled;
+ 226:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_SDK.disable_motor_onoff_by_stick =
+ 227:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     onboard_matlab_Y.CTRL_mode.disable_motor_onoff_by_stick;
+ 228:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_CTRL_Input.ctrl = onboard_matlab_Y.CTRL_mode.flight_mode;
+ 229:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 230:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   //commands will be directly interpreted by each motor individually
+ 231:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Individual_Motor_Control.motor[0] = (unsigned char)
+ 232:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_rpm_1);
+ 233:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Individual_Motor_Control.motor[1] = (unsigned char)
+ 234:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_rpm_2);
+ 235:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Individual_Motor_Control.motor[2] = (unsigned char)
+ 236:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_rpm_3);
+ 237:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Individual_Motor_Control.motor[3] = (unsigned char)
+ 238:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_rpm_4);
+ 239:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Individual_Motor_Control.motor[4] = (unsigned char)
+ 240:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_rpm_5);
+ 241:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Individual_Motor_Control.motor[5] = (unsigned char)
+ 242:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_rpm_6);
+ 243:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 244:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   //direct motor commands with standard output mapping
+ 245:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Motor_Control.roll = (unsigned char)
+ 246:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_mapped_roll);
+ 247:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Motor_Control.pitch = (unsigned char)
+ 248:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_mapped_pitch);
+ 249:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Motor_Control.yaw = (unsigned char)
+ 250:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_mapped_yaw);
+ 251:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_Direct_Motor_Control.thrust = (unsigned char)
+ 252:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     (onboard_matlab_Y.LL_CMD_Out.motor_mapped_thrust);
+ 253:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 254:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   //attitude commands
+ 255:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_CTRL_Input.roll = (short)(onboard_matlab_Y.LL_CMD_Out.att_cmd_roll);
+ 256:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_CTRL_Input.pitch = (short)(onboard_matlab_Y.LL_CMD_Out.att_cmd_pitch);
+ 257:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_CTRL_Input.yaw = (short)(onboard_matlab_Y.LL_CMD_Out.att_cmd_yaw);
+ 258:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   WO_CTRL_Input.thrust = (short)(onboard_matlab_Y.LL_CMD_Out.att_cmd_thrust);
+ 259:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 260:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /****************** write debug channels ******************/
+ 261:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug01 = onboard_matlab_Y.UART_Data_Out.uart_debug_01;
+ 262:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug02 = onboard_matlab_Y.UART_Data_Out.uart_debug_02;
+ 263:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug03 = onboard_matlab_Y.UART_Data_Out.uart_debug_03;
+ 264:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug04 = onboard_matlab_Y.UART_Data_Out.uart_debug_04;
+ 265:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug05 = onboard_matlab_Y.UART_Data_Out.uart_debug_05;
+ 266:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug06 = onboard_matlab_Y.UART_Data_Out.uart_debug_06;
+ 267:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug07 = onboard_matlab_Y.UART_Data_Out.uart_debug_07;
+ 268:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug08 = onboard_matlab_Y.UART_Data_Out.uart_debug_08;
+ 269:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug09 = onboard_matlab_Y.UART_Data_Out.uart_debug_09;
+ 270:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug10 = onboard_matlab_Y.UART_Data_Out.uart_debug_10;
+ 271:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug11 = onboard_matlab_Y.UART_Data_Out.uart_debug_11;
+ 272:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug12 = onboard_matlab_Y.UART_Data_Out.uart_debug_12;
+ 273:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug13 = onboard_matlab_Y.UART_Data_Out.uart_debug_13;
+ 274:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug14 = onboard_matlab_Y.UART_Data_Out.uart_debug_14;
+ 275:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug15 = onboard_matlab_Y.UART_Data_Out.uart_debug_15;
+ 276:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug16 = onboard_matlab_Y.UART_Data_Out.uart_debug_16;
+ 277:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug17 = onboard_matlab_Y.UART_Data_Out.uart_debug_17;
+ 278:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug18 = onboard_matlab_Y.UART_Data_Out.uart_debug_18;
+ 279:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug19 = onboard_matlab_Y.UART_Data_Out.uart_debug_19;
+ 280:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   matlab_debug.debug20 = onboard_matlab_Y.UART_Data_Out.uart_debug_20;
+ 281:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 282:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /*************** end outputs *********************/
+ 283:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   OverrunFlags[0]--;
+ 284:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 285:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* If task "1" is running, don't run any lower priority task */
+ 286:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   if (OverrunFlags[1])
+ 287:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     return;
+ 288:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 289:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Step the model for subrate */
+ 290:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   if (eventFlags[1]) {
+ 291:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     OverrunFlags[1]++;
+ 292:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 293:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     /* Set model inputs associated with subrates here */
+ 294:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 295:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     /* Step the model for subrate 1 */
+ 296:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     onboard_matlab_step1();
+ 297:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 298:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     /* Get model outputs here */
+ 299:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 300:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     /* Get model outputs associated with subrates here */
+ 301:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 302:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     /* Indicate task complete for subrate */
+ 303:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     OverrunFlags[1]--;
+ 304:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****     eventFlags[1]--;
+ 305:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   }
+ 306:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** 
+ 307:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Disable interrupts here */
+ 308:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Restore FPU context here (if necessary) */
+ 309:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c ****   /* Enable interrupts here */
+ 310:../custom_mdl/onboard_matlab_ert_rtw/ert_main.c **** }
+  36              	56
+  37 0028 38D08DE2 		ldmfd	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+  38 002c F04FBDE8 		bx	lr
+  39 0030 1EFF2FE1 	.L14:
+  40              		.loc 1 89 0
+  41              		ldr	lr, .L16+4
+  42 0034 28E69FE5 		.loc 1 94 0
+  43              		ldrsh	r6, [lr, #10]
+  44 0038 FA60DEE1 		.loc 1 95 0
+  45              		ldrsh	ip, [lr, #12]
+  46 003c FCC0DEE1 		.loc 1 94 0
+  47              		mov	r6, r6, asl #3
+  48 0040 8661A0E1 		.loc 1 95 0
+  49              		mov	ip, ip, asl #3
+  50 0044 8CC1A0E1 		.loc 1 96 0
+  51              		ldrsh	r0, [lr, #14]
+  52 0048 FE00DEE1 		.loc 1 95 0
+  53              		str	ip, [sp, #32]
+  54 004c 20C08DE5 		.loc 1 94 0
+  55              		str	r6, [sp, #44]
+  56 0050 2C608DE5 		sub	r6, r6, #16384
+  57 0054 016946E2 		.loc 1 90 0
+  58              		ldrsh	r2, [lr, #2]
+  59 0058 F220DEE1 		.loc 1 94 0
+  60              		str	r6, [sp, #40]
+  61 005c 28608DE5 		.loc 1 95 0
+  62              		ldr	r6, [sp, #32]
+  63 0060 20609DE5 		.loc 1 96 0
+  64              		mov	r0, r0, asl #3
+  65 0064 8001A0E1 		.loc 1 89 0
+  66              		ldrsh	r3, [lr, #0]
+  67 0068 F030DEE1 		.loc 1 96 0
+  68              		str	r0, [sp, #20]
+  69 006c 14008DE5 		.loc 1 95 0
+  70              		sub	r6, r6, #16384
+  71 0070 016946E2 		.loc 1 89 0
+  72              		ldr	r0, .L16+8
+  73 0074 EC059FE5 		.loc 1 90 0
+  74              		mov	r2, r2, asl #3
+  75 0078 8221A0E1 		.loc 1 95 0
+  76              		str	r6, [sp, #28]
+  77 007c 1C608DE5 		.loc 1 90 0
+  78              		sub	r2, r2, #16384
+  79 0080 012942E2 		.loc 1 96 0
+  80              		ldr	r6, [sp, #20]
+  81 0084 14609DE5 		.loc 1 91 0
+  82              		ldrsh	r1, [lr, #4]
+  83 0088 F410DEE1 		.loc 1 92 0
+  84              		ldrsh	r4, [lr, #6]
+  85 008c F640DEE1 		.loc 1 93 0
+  86              		ldrsh	r5, [lr, #8]
+  87 0090 F850DEE1 		.loc 1 90 0
+  88              		strh	r2, [r0, #118]	@ movhi
+  89 0094 B627C0E1 		.loc 1 89 0
+  90              		mov	r3, r3, asl #3
+  91 0098 8331A0E1 		.loc 1 94 0
+  92              		ldr	r2, [sp, #40]
+  93 009c 28209DE5 		.loc 1 96 0
+  94              		sub	r6, r6, #16384
+  95 00a0 016946E2 		.loc 1 89 0
+  96              		sub	r3, r3, #16384
+  97 00a4 013943E2 		.loc 1 99 0
+  98              		ldr	fp, [lr, #16]
+  99 00a8 10B09EE5 		.loc 1 100 0
+ 100              		ldr	r9, [lr, #20]
+ 101 00ac 14909EE5 		.loc 1 96 0
+ 102              		str	r6, [sp, #16]
+ 103 00b0 10608DE5 		.loc 1 89 0
+ 104              		strh	r3, [r0, #116]	@ movhi
+ 105 00b4 B437C0E1 		.loc 1 94 0
+ 106              		strh	r2, [r0, #126]	@ movhi
+ 107 00b8 BE27C0E1 		.loc 1 95 0
+ 108              		ldr	r3, [sp, #28]
+ 109 00bc 1C309DE5 		.loc 1 102 0
+ 110              		ldr	r2, [lr, #28]
+ 111 00c0 1C209EE5 		.loc 1 96 0
+ 112              		strh	r6, [r0, #130]	@ movhi
+ 113 00c4 B268C0E1 		.loc 1 91 0
+ 114              		mov	r1, r1, asl #3
+ 115 00c8 8111A0E1 		.loc 1 101 0
+ 116              		ldr	r6, [lr, #24]
+ 117 00cc 18609EE5 		.loc 1 92 0
+ 118              		mov	r4, r4, asl #3
+ 119 00d0 8441A0E1 		.loc 1 93 0
+ 120              		mov	r5, r5, asl #3
+ 121 00d4 8551A0E1 		.loc 1 91 0
+ 122              		sub	r1, r1, #16384
+ 123 00d8 011941E2 		.loc 1 92 0
+ 124              		sub	r4, r4, #16384
+ 125 00dc 014944E2 		.loc 1 93 0
+ 126              		sub	r5, r5, #16384
+ 127 00e0 015945E2 		.loc 1 91 0
+ 128              		strh	r1, [r0, #120]	@ movhi
+ 129 00e4 B817C0E1 		.loc 1 92 0
+ 130              		strh	r4, [r0, #122]	@ movhi
+ 131 00e8 BA47C0E1 		.loc 1 93 0
+ 132              		strh	r5, [r0, #124]	@ movhi
+ 133 00ec BC57C0E1 		.loc 1 95 0
+ 134              		strh	r3, [r0, #128]	@ movhi
+ 135 00f0 B038C0E1 		.loc 1 99 0
+ 136              		stmia	r0, {r9, fp}	@ phole stm
+ 137 00f4 000A80E8 		.loc 1 101 0
+ 138              		str	r6, [r0, #8]
+ 139 00f8 086080E5 		.loc 1 102 0
+ 140              		str	r2, [r0, #16]
+ 141 00fc 102080E5 		.loc 1 103 0
+ 142              		add	r3, lr, #32
+ 143 0100 20308EE2 		ldmia	r3, {r3, r6}	@ phole ldm
+ 144 0104 480093E8 		.loc 1 105 0
+ 145              		ldrh	r2, [lr, #40]
+ 146 0108 B822DEE1 		.loc 1 103 0
+ 147              		str	r3, [r0, #12]
+ 148 010c 0C3080E5 		.loc 1 106 0
+ 149              		ldrh	r3, [lr, #42]
+ 150 0110 BA32DEE1 		.loc 1 129 0
+ 151              		ldr	ip, .L16+12
+ 152 0114 50C59FE5 		.loc 1 104 0
+ 153              		str	r6, [r0, #20]
+ 154 0118 146080E5 		.loc 1 105 0
+ 155              		strh	r2, [r0, #24]	@ movhi
+ 156 011c B821C0E1 		.loc 1 107 0
+ 157              		ldrh	r6, [lr, #44]
+ 158 0120 BC62DEE1 		.loc 1 108 0
+ 159              		ldr	r2, [lr, #48]
+ 160 0124 30209EE5 		.loc 1 106 0
+ 161              		strh	r3, [r0, #26]	@ movhi
+ 162 0128 BA31C0E1 		.loc 1 126 0
+ 163              		ldrb	r3, [lr, #65]	@ zero_extendqisi2
+ 164 012c 4130DEE5 		.loc 1 121 0
+ 165              		ldrb	fp, [lr, #60]	@ zero_extendqisi2
+ 166 0130 3CB0DEE5 		.loc 1 123 0
+ 167              		ldrb	r8, [lr, #62]	@ zero_extendqisi2
+ 168 0134 3E80DEE5 		.loc 1 122 0
+ 169              		ldrb	sl, [lr, #61]	@ zero_extendqisi2
+ 170 0138 3DA0DEE5 		.loc 1 124 0
+ 171              		ldrb	r7, [lr, #63]	@ zero_extendqisi2
+ 172 013c 3F70DEE5 		.loc 1 129 0
+ 173              		ldmia	ip, {r1, r4}	@ phole ldm
+ 174 0140 12009CE8 		.loc 1 107 0
+ 175              		strh	r6, [r0, #28]	@ movhi
+ 176 0144 BC61C0E1 		.loc 1 108 0
+ 177              		str	r2, [r0, #32]
+ 178 0148 202080E5 		.loc 1 125 0
+ 179              		ldrb	r6, [lr, #64]	@ zero_extendqisi2
+ 180 014c 4060DEE5 		.loc 1 130 0
+ 181              		ldr	r2, .L16+16
+ 182 0150 18259FE5 		.loc 1 126 0
+ 183              		str	r3, [sp, #12]
+ 184 0154 0C308DE5 		.loc 1 129 0
+ 185              		ldr	r3, .L16+20
+ 186 0158 14359FE5 		.loc 1 130 0
+ 187              		str	r4, [r2, #0]
+ 188 015c 004082E5 		.loc 1 129 0
+ 189              		str	r1, [r3, #0]
+ 190 0160 001083E5 		.loc 1 110 0
+ 191              		ldr	r2, [lr, #56]
+ 192 0164 38209EE5 		.loc 1 111 0
+ 193              		ldr	r3, [lr, #120]
+ 194 0168 78309EE5 		.loc 1 109 0
+ 195              		ldr	r5, [lr, #52]
+ 196 016c 34509EE5 		.loc 1 110 0
+ 197              		str	r2, [r0, #40]
+ 198 0170 282080E5 		.loc 1 111 0
+ 199              		str	r3, [r0, #44]
+ 200 0174 2C3080E5 		.loc 1 112 0
+ 201              		add	r2, lr, #124
+ 202 0178 7C208EE2 		ldmia	r2, {r2, r3, r9}	@ phole ldm
+ 203 017c 0C0292E8 		.loc 1 109 0
+ 204              		str	r5, [r0, #36]
+ 205 0180 245080E5 		.loc 1 112 0
+ 206              		str	r2, [r0, #48]
+ 207 0184 302080E5 		.loc 1 115 0
+ 208              		str	r3, [r0, #56]
+ 209 0188 383080E5 		.loc 1 121 0
+ 210              		strb	fp, [r0, #156]
+ 211 018c 9CB0C0E5 		.loc 1 123 0
+ 212              		strb	r8, [r0, #158]
+ 213 0190 9E80C0E5 		.loc 1 122 0
+ 214              		strb	sl, [r0, #157]
+ 215 0194 9DA0C0E5 		.loc 1 124 0
+ 216              		strb	r7, [r0, #159]
+ 217 0198 9F70C0E5 		.loc 1 125 0
+ 218              		strb	r6, [r0, #160]
+ 219 019c A060C0E5 		.loc 1 114 0
+ 220              		ldrh	r3, [lr, #138]
+ 221 01a0 BA38DEE1 		.loc 1 126 0
+ 222              		ldr	r6, [sp, #12]
+ 223 01a4 0C609DE5 		.loc 1 114 0
+ 224              		strh	r3, [r0, #54]	@ movhi
+ 225 01a8 B633C0E1 		.loc 1 126 0
+ 226              		strb	r6, [r0, #161]
+ 227 01ac A160C0E5 		.loc 1 131 0
+ 228              		ldr	r3, .L16+24
+ 229 01b0 C0349FE5 		ldr	r6, [ip, #8]
+ 230 01b4 08609CE5 		.loc 1 113 0
+ 231              		ldrh	r2, [lr, #136]
+ 232 01b8 B828DEE1 		.loc 1 132 0
+ 233              		ldr	r1, [ip, #12]
+ 234 01bc 0C109CE5 		.loc 1 131 0
+ 235              		str	r6, [r3, #0]
+ 236 01c0 006083E5 		.loc 1 132 0
+ 237              		ldr	r3, .L16+28
+ 238 01c4 B0349FE5 		.loc 1 133 0
+ 239              		add	r4, ip, #16
+ 240 01c8 10408CE2 		ldmia	r4, {r4, r5}	@ phole ldm
+ 241 01cc 300094E8 		.loc 1 132 0
+ 242              		str	r1, [r3, #0]
+ 243 01d0 001083E5 		.loc 1 113 0
+ 244              		strh	r2, [r0, #52]	@ movhi
+ 245 01d4 B423C0E1 		.loc 1 134 0
+ 246              		ldr	r3, .L16+32
+ 247 01d8 A0349FE5 		.loc 1 133 0
+ 248              		ldr	r2, .L16+36
+ 249 01dc A0249FE5 		.loc 1 134 0
+ 250              		str	r5, [r3, #0]
+ 251 01e0 005083E5 		.loc 1 133 0
+ 252              		str	r4, [r2, #0]
+ 253 01e4 004082E5 		.loc 1 135 0
+ 254              		ldr	r3, [ip, #24]
+ 255 01e8 18309CE5 		ldr	r2, .L16+40
+ 256 01ec 94249FE5 		.loc 1 136 0
+ 257              		ldr	r6, [ip, #28]
+ 258 01f0 1C609CE5 		.loc 1 135 0
+ 259              		str	r3, [r2, #0]
+ 260 01f4 003082E5 		.loc 1 136 0
+ 261              		ldr	r3, .L16+44
+ 262 01f8 8C349FE5 		.loc 1 137 0
+ 263              		ldr	r2, .L16+48
+ 264 01fc 8C249FE5 		.loc 1 136 0
+ 265              		str	r6, [r3, #0]
+ 266 0200 006083E5 		.loc 1 137 0
+ 267              		add	r3, ip, #32
+ 268 0204 20308CE2 		ldmia	r3, {r3, r6}	@ phole ldm
+ 269 0208 480093E8 		str	r3, [r2, #0]
+ 270 020c 003082E5 		.loc 1 117 0
+ 271              		str	r9, [r0, #60]
+ 272 0210 3C9080E5 		.loc 1 138 0
+ 273              		ldr	r3, .L16+52
+ 274 0214 78349FE5 		.loc 1 139 0
+ 275              		ldr	r9, [ip, #40]
+ 276 0218 28909CE5 		ldr	r2, .L16+56
+ 277 021c 74249FE5 		.loc 1 138 0
+ 278              		str	r6, [r3, #0]
+ 279 0220 006083E5 		.loc 1 139 0
+ 280              		str	r9, [r2, #0]
+ 281 0224 009082E5 		.loc 1 140 0
+ 282              		ldr	r3, .L16+60
+ 283 0228 6C349FE5 		ldr	r2, [ip, #44]
+ 284 022c 2C209CE5 		str	r2, [r3, #0]
+ 285 0230 002083E5 		.loc 1 141 0
+ 286              		ldr	r3, [ip, #48]
+ 287 0234 30309CE5 		ldr	r2, .L16+64
+ 288 0238 60249FE5 		.loc 1 148 0
+ 289              		ldr	fp, [ip, #76]
+ 290 023c 4CB09CE5 		.loc 1 141 0
+ 291              		str	r3, [r2, #0]
+ 292 0240 003082E5 		.loc 1 142 0
+ 293              		ldr	r6, [ip, #52]
+ 294 0244 34609CE5 		ldr	r3, .L16+68
+ 295 0248 54349FE5 		.loc 1 143 0
+ 296              		ldr	r2, .L16+72
+ 297 024c 54249FE5 		.loc 1 142 0
+ 298              		str	r6, [r3, #0]
+ 299 0250 006083E5 		.loc 1 143 0
+ 300              		add	r3, ip, #56
+ 301 0254 38308CE2 		ldmia	r3, {r3, r6}	@ phole ldm
+ 302 0258 480093E8 		str	r3, [r2, #0]
+ 303 025c 003082E5 		.loc 1 144 0
+ 304              		ldr	r3, .L16+76
+ 305 0260 44349FE5 		.loc 1 145 0
+ 306              		ldr	r2, .L16+80
+ 307 0264 44249FE5 		.loc 1 144 0
+ 308              		str	r6, [r3, #0]
+ 309 0268 006083E5 		.loc 1 145 0
+ 310              		add	r3, ip, #64
+ 311 026c 40308CE2 		ldmia	r3, {r3, r6}	@ phole ldm
+ 312 0270 480093E8 		str	r3, [r2, #0]
+ 313 0274 003082E5 		.loc 1 146 0
+ 314              		ldr	r3, .L16+84
+ 315 0278 34349FE5 		.loc 1 147 0
+ 316              		ldr	r2, .L16+88
+ 317 027c 34249FE5 		.loc 1 146 0
+ 318              		str	r6, [r3, #0]
+ 319 0280 006083E5 		.loc 1 147 0
+ 320              		ldr	r3, [ip, #72]
+ 321 0284 48309CE5 		str	r3, [r2, #0]
+ 322 0288 003082E5 		.loc 1 148 0
+ 323              		ldr	r3, .L16+92
+ 324 028c 28349FE5 		.loc 1 149 0
+ 325              		add	r1, ip, #80
+ 326 0290 50108CE2 		ldmia	r1, {r1, r4}	@ phole ldm
+ 327 0294 120091E8 		.loc 1 148 0
+ 328              		str	fp, [r3, #0]
+ 329 0298 00B083E5 		.loc 1 150 0
+ 330              		ldr	r2, .L16+96
+ 331 029c 1C249FE5 		.loc 1 149 0
+ 332              		ldr	r3, .L16+100
+ 333 02a0 1C349FE5 		.loc 1 151 0
+ 334              		add	r5, ip, #88
+ 335 02a4 58508CE2 		ldmia	r5, {r5, r6}	@ phole ldm
+ 336 02a8 600095E8 		.loc 1 149 0
+ 337              		str	r1, [r3, #0]
+ 338 02ac 001083E5 		.loc 1 150 0
+ 339              		str	r4, [r2, #0]
+ 340 02b0 004082E5 		.loc 1 151 0
+ 341              		ldr	r3, .L16+104
+ 342 02b4 0C349FE5 		.loc 1 152 0
+ 343              		ldr	r2, .L16+108
+ 344 02b8 0C249FE5 		.loc 1 151 0
+ 345              		str	r5, [r3, #0]
+ 346 02bc 005083E5 		.loc 1 152 0
+ 347              		str	r6, [r2, #0]
+ 348 02c0 006082E5 		.loc 1 153 0
+ 349              		ldr	r3, .L16+112
+ 350 02c4 04349FE5 		ldr	r2, [ip, #96]
+ 351 02c8 60209CE5 		str	r2, [r3, #0]
+ 352 02cc 002083E5 		.loc 1 154 0
+ 353              		ldr	r3, [ip, #100]
+ 354 02d0 64309CE5 		ldr	r2, .L16+116
+ 355 02d4 F8239FE5 		.loc 1 156 0
+ 356              		add	r6, ip, #104
+ 357 02d8 68608CE2 		ldmia	r6, {r6, r9}	@ phole ldm
+ 358 02dc 400296E8 		.loc 1 154 0
+ 359              		str	r3, [r2, #0]
+ 360 02e0 003082E5 		.loc 1 155 0
+ 361              		ldr	r3, .L16+120
+ 362 02e4 EC339FE5 		.loc 1 156 0
+ 363              		ldr	r2, .L16+124
+ 364 02e8 EC239FE5 		.loc 1 155 0
+ 365              		str	r6, [r3, #0]
+ 366 02ec 006083E5 		.loc 1 156 0
+ 367              		str	r9, [r2, #0]
+ 368 02f0 009082E5 		.loc 1 157 0
+ 369              		ldr	r3, .L16+128
+ 370 02f4 E4339FE5 		ldr	r2, [ip, #112]
+ 371 02f8 70209CE5 		str	r2, [r3, #0]
+ 372 02fc 002083E5 		.loc 1 158 0
+ 373              		ldr	r3, [ip, #116]
+ 374 0300 74309CE5 		ldr	r2, .L16+132
+ 375 0304 D8239FE5 		.loc 1 165 0
+ 376              		ldr	fp, [ip, #144]
+ 377 0308 90B09CE5 		.loc 1 158 0
+ 378              		str	r3, [r2, #0]
+ 379 030c 003082E5 		.loc 1 159 0
+ 380              		ldr	r6, [ip, #120]
+ 381 0310 78609CE5 		ldr	r3, .L16+136
+ 382 0314 CC339FE5 		.loc 1 160 0
+ 383              		ldr	r2, .L16+140
+ 384 0318 CC239FE5 		.loc 1 159 0
+ 385              		str	r6, [r3, #0]
+ 386 031c 006083E5 		.loc 1 160 0
+ 387              		add	r3, ip, #124
+ 388 0320 7C308CE2 		ldmia	r3, {r3, r6}	@ phole ldm
+ 389 0324 480093E8 		str	r3, [r2, #0]
+ 390 0328 003082E5 		.loc 1 161 0
+ 391              		ldr	r3, .L16+144
+ 392 032c BC339FE5 		.loc 1 162 0
+ 393              		ldr	r2, .L16+148
+ 394 0330 BC239FE5 		.loc 1 161 0
+ 395              		str	r6, [r3, #0]
+ 396 0334 006083E5 		.loc 1 162 0
+ 397              		add	r3, ip, #132
+ 398 0338 84308CE2 		ldmia	r3, {r3, r6}	@ phole ldm
+ 399 033c 480093E8 		str	r3, [r2, #0]
+ 400 0340 003082E5 		.loc 1 163 0
+ 401              		ldr	r3, .L16+152
+ 402 0344 AC339FE5 		.loc 1 164 0
+ 403              		ldr	r2, .L16+156
+ 404 0348 AC239FE5 		.loc 1 163 0
+ 405              		str	r6, [r3, #0]
+ 406 034c 006083E5 		.loc 1 164 0
+ 407              		ldr	r3, [ip, #140]
+ 408 0350 8C309CE5 		str	r3, [r2, #0]
+ 409 0354 003082E5 		.loc 1 165 0
+ 410              		ldr	r3, .L16+160
+ 411 0358 A0339FE5 		.loc 1 166 0
+ 412              		ldr	r4, [ip, #148]
+ 413 035c 94409CE5 		.loc 1 165 0
+ 414              		str	fp, [r3, #0]
+ 415 0360 00B083E5 		.loc 1 166 0
+ 416              		ldr	r3, .L16+164
+ 417 0364 98339FE5 		.loc 1 171 0
+ 418              		ldr	r1, .L16+168
+ 419 0368 98139FE5 		.loc 1 168 0
+ 420              		add	r5, ip, #152
+ 421 036c 98508CE2 		ldmia	r5, {r5, r6}	@ phole ldm
+ 422 0370 600095E8 		.loc 1 166 0
+ 423              		str	r4, [r3, #0]
+ 424 0374 004083E5 		.loc 1 167 0
+ 425              		ldr	r2, .L16+172
+ 426 0378 8C239FE5 		.loc 1 168 0
+ 427              		ldr	r3, .L16+176
+ 428 037c 8C339FE5 		.loc 1 167 0
+ 429              		str	r5, [r2, #0]
+ 430 0380 005082E5 		.loc 1 168 0
+ 431              		str	r6, [r3, #0]
+ 432 0384 006083E5 		.loc 1 182 0
+ 433              		ldrh	r2, [r1, #22]
+ 434 0388 B621D1E1 		.loc 1 171 0
+ 435              		ldrh	r3, [r1, #0]
+ 436 038c B030D1E1 		.loc 1 172 0
+ 437              		ldrh	r6, [r1, #2]
+ 438 0390 B260D1E1 		.loc 1 185 0
+ 439              		ldr	r8, [lr, #68]
+ 440 0394 44809EE5 		.loc 1 182 0
+ 441              		strh	r2, [r0, #154]	@ movhi
+ 442 0398 BA29C0E1 		.loc 1 171 0
+ 443              		strh	r3, [r0, #132]	@ movhi
+ 444 039c B438C0E1 		.loc 1 173 0
+ 445              		ldrh	r2, [r1, #4]
+ 446 03a0 B420D1E1 		.loc 1 174 0
+ 447              		ldrh	r3, [r1, #6]
+ 448 03a4 B630D1E1 		.loc 1 172 0
+ 449              		strh	r6, [r0, #134]	@ movhi
+ 450 03a8 B668C0E1 		.loc 1 175 0
+ 451              		ldrh	r6, [r1, #8]
+ 452 03ac B860D1E1 		.loc 1 186 0
+ 453              		ldr	ip, [lr, #72]
+ 454 03b0 48C09EE5 		.loc 1 173 0
+ 455              		strh	r2, [r0, #136]	@ movhi
+ 456 03b4 B828C0E1 		.loc 1 174 0
+ 457              		strh	r3, [r0, #138]	@ movhi
+ 458 03b8 BA38C0E1 		.loc 1 185 0
+ 459              		str	r8, [r0, #64]
+ 460 03bc 408080E5 		.loc 1 175 0
+ 461              		strh	r6, [r0, #140]	@ movhi
+ 462 03c0 BC68C0E1 		.loc 1 178 0
+ 463              		ldrh	r6, [r1, #14]
+ 464 03c4 BE60D1E1 		strh	r6, [r0, #146]	@ movhi
+ 465 03c8 B269C0E1 		.loc 1 194 0
+ 466              		ldr	r6, [lr, #100]
+ 467 03cc 64609EE5 		.loc 1 176 0
+ 468              		ldrh	r2, [r1, #10]
+ 469 03d0 BA20D1E1 		.loc 1 177 0
+ 470              		ldrh	r3, [r1, #12]
+ 471 03d4 BC30D1E1 		.loc 1 194 0
+ 472              		str	r6, [r0, #96]
+ 473 03d8 606080E5 		.loc 1 195 0
+ 474              		ldr	r6, [lr, #104]
+ 475 03dc 68609EE5 		.loc 1 203 0
+ 476              		ldr	fp, .L16+180
+ 477 03e0 2CB39FE5 		.loc 1 176 0
+ 478              		strh	r2, [r0, #142]	@ movhi
+ 479 03e4 BE28C0E1 		.loc 1 177 0
+ 480              		strh	r3, [r0, #144]	@ movhi
+ 481 03e8 B039C0E1 		.loc 1 179 0
+ 482              		ldrh	r2, [r1, #16]
+ 483 03ec B021D1E1 		.loc 1 180 0
+ 484              		ldrh	r3, [r1, #18]
+ 485 03f0 B231D1E1 		.loc 1 195 0
+ 486              		str	r6, [r0, #100]
+ 487 03f4 646080E5 		.loc 1 181 0
+ 488              		ldrh	r1, [r1, #20]
+ 489 03f8 B411D1E1 		.loc 1 196 0
+ 490              		ldr	r6, [lr, #108]
+ 491 03fc 6C609EE5 		.loc 1 203 0
+ 492              		ldr	r9, [fp, #4]
+ 493 0400 04909BE5 		.loc 1 191 0
+ 494              		add	r4, lr, #92
+ 495 0404 5C408EE2 		ldmia	r4, {r4, r5}	@ phole ldm
+ 496 0408 300094E8 		.loc 1 179 0
+ 497              		strh	r2, [r0, #148]	@ movhi
+ 498 040c B429C0E1 		.loc 1 180 0
+ 499              		strh	r3, [r0, #150]	@ movhi
+ 500 0410 B639C0E1 		.loc 1 188 0
+ 501              		ldr	r2, [lr, #80]
+ 502 0414 50209EE5 		.loc 1 187 0
+ 503              		ldr	r3, [lr, #76]
+ 504 0418 4C309EE5 		.loc 1 181 0
+ 505              		strh	r1, [r0, #152]	@ movhi
+ 506 041c B819C0E1 		.loc 1 186 0
+ 507              		str	ip, [r0, #68]
+ 508 0420 44C080E5 		.loc 1 189 0
+ 509              		add	r1, lr, #84
+ 510 0424 54108EE2 		ldmia	r1, {r1, ip}	@ phole ldm
+ 511 0428 021091E8 		.loc 1 196 0
+ 512              		str	r6, [r0, #104]
+ 513 042c 686080E5 		.loc 1 197 0
+ 514              		ldr	r6, [lr, #112]
+ 515 0430 70609EE5 		.loc 1 198 0
+ 516              		ldrh	lr, [lr, #116]
+ 517 0434 B4E7DEE1 		.loc 1 203 0
+ 518              		cmp	r9, #0
+ 519 0438 000059E3 		.loc 1 197 0
+ 520              		str	r6, [r0, #108]
+ 521 043c 6C6080E5 		.loc 1 198 0
+ 522              		strh	lr, [r0, #112]	@ movhi
+ 523 0440 B0E7C0E1 		.loc 1 187 0
+ 524              		str	r3, [r0, #72]
+ 525 0444 483080E5 		.loc 1 188 0
+ 526              		str	r2, [r0, #76]
+ 527 0448 4C2080E5 		.loc 1 189 0
+ 528              		str	r1, [r0, #80]
+ 529 044c 501080E5 		.loc 1 190 0
+ 530              		str	ip, [r0, #84]
+ 531 0450 54C080E5 		.loc 1 191 0
+ 532              		str	r4, [r0, #88]
+ 533 0454 584080E5 		.loc 1 193 0
+ 534              		str	r5, [r0, #92]
+ 535 0458 5C5080E5 		.loc 1 203 0
+ 536              		bne	.L4
+ 537 045c 0700001A 		.loc 1 204 0
+ 538              		ldr	r2, .L16+184
+ 539 0460 B0229FE5 		ldrb	r3, [r2, #1]	@ zero_extendqisi2
+ 540 0464 0130D2E5 		cmp	r3, #0
+ 541 0468 000053E3 		bne	.L15
+ 542 046c 7600001A 		.loc 1 213 0
+ 543              		ldr	r3, [sp, #52]
+ 544 0470 34309DE5 		str	r3, [fp, #4]
+ 545 0474 04308BE5 		.loc 1 210 0
+ 546              		strb	r3, [r2, #1]
+ 547 0478 0130C2E5 		b	.L8
+ 548 047c 040000EA 	.L4:
+ 549              		.loc 1 213 0
+ 550              		add	r3, r9, #1
+ 551 0480 013089E2 		.loc 1 214 0
+ 552              		cmp	r3, #2
+ 553 0484 020053E3 		.loc 1 213 0
+ 554              		str	r3, [fp, #4]
+ 555 0488 04308BE5 		.loc 1 215 0
+ 556              		subeq	r3, r3, #2
+ 557 048c 02304302 		streq	r3, [fp, #4]
+ 558 0490 04308B05 	.L8:
+ 559              		.loc 1 219 0
+ 560              		bl	onboard_matlab_step0
+ 561 0494 FEFFFFEB 		.loc 1 224 0
+ 562              		ldr	r3, .L16+188
+ 563 0498 7C329FE5 		.loc 1 225 0
+ 564              		ldrb	r6, [r3, #29]	@ zero_extendqisi2
+ 565 049c 1D60D3E5 		.loc 1 224 0
+ 566              		ldrb	fp, [r3, #28]	@ zero_extendqisi2
+ 567 04a0 1CB0D3E5 		.loc 1 225 0
+ 568              		str	r6, [sp, #4]
+ 569 04a4 04608DE5 		.loc 1 226 0
+ 570              		ldrb	r2, [r3, #30]	@ zero_extendqisi2
+ 571 04a8 1E20D3E5 		str	r2, [sp, #0]
+ 572 04ac 00208DE5 		ldr	r6, [sp, #0]
+ 573 04b0 00609DE5 		.loc 1 231 0
+ 574              		ldr	r0, .L16+192
+ 575 04b4 64029FE5 		.loc 1 245 0
+ 576              		ldr	lr, .L16+196
+ 577 04b8 64E29FE5 		.loc 1 224 0
+ 578              		ldr	ip, .L16+200
+ 579 04bc 64C29FE5 		.loc 1 241 0
+ 580              		ldrh	r5, [r3, #10]
+ 581 04c0 BA50D3E1 		.loc 1 251 0
+ 582              		ldrh	r2, [r3, #18]
+ 583 04c4 B221D3E1 		.loc 1 226 0
+ 584              		strb	r6, [ip, #2]
+ 585 04c8 0260CCE5 		.loc 1 241 0
+ 586              		strb	r5, [r0, #5]
+ 587 04cc 0550C0E5 		.loc 1 224 0
+ 588              		strb	fp, [ip, #0]
+ 589 04d0 00B0CCE5 		.loc 1 251 0
+ 590              		strb	r2, [lr, #3]
+ 591 04d4 0320CEE5 		.loc 1 225 0
+ 592              		ldr	r2, [sp, #4]
+ 593 04d8 04209DE5 		.loc 1 233 0
+ 594              		ldrh	r6, [r3, #2]
+ 595 04dc B260D3E1 		.loc 1 225 0
+ 596              		strb	r2, [ip, #1]
+ 597 04e0 0120CCE5 		.loc 1 235 0
+ 598              		ldrh	ip, [r3, #4]
+ 599 04e4 B4C0D3E1 		.loc 1 237 0
+ 600              		ldrh	r2, [r3, #6]
+ 601 04e8 B620D3E1 		.loc 1 231 0
+ 602              		ldrh	r9, [r3, #0]
+ 603 04ec B090D3E1 		.loc 1 233 0
+ 604              		strb	r6, [r0, #1]
+ 605 04f0 0160C0E5 		.loc 1 235 0
+ 606              		strb	ip, [r0, #2]
+ 607 04f4 02C0C0E5 		.loc 1 239 0
+ 608              		ldrh	r6, [r3, #8]
+ 609 04f8 B860D3E1 		.loc 1 245 0
+ 610              		ldrh	ip, [r3, #12]
+ 611 04fc BCC0D3E1 		.loc 1 228 0
+ 612              		ldr	r4, .L16+204
+ 613 0500 24429FE5 		.loc 1 237 0
+ 614              		strb	r2, [r0, #3]
+ 615 0504 0320C0E5 		.loc 1 239 0
+ 616              		strb	r6, [r0, #4]
+ 617 0508 0460C0E5 		.loc 1 249 0
+ 618              		ldrh	r2, [r3, #16]
+ 619 050c B021D3E1 		.loc 1 228 0
+ 620              		ldrh	r6, [r3, #32]
+ 621 0510 B062D3E1 		.loc 1 231 0
+ 622              		strb	r9, [r0, #0]
+ 623 0514 0090C0E5 		.loc 1 245 0
+ 624              		strb	ip, [lr, #1]
+ 625 0518 01C0CEE5 		.loc 1 247 0
+ 626              		ldrh	r0, [r3, #14]
+ 627 051c BE00D3E1 		.loc 1 255 0
+ 628              		ldrh	ip, [r3, #20]
+ 629 0520 B4C1D3E1 		.loc 1 247 0
+ 630              		strb	r0, [lr, #0]
+ 631 0524 0000CEE5 		.loc 1 249 0
+ 632              		strb	r2, [lr, #2]
+ 633 0528 0220CEE5 		.loc 1 228 0
+ 634              		strh	r6, [r4, #8]	@ movhi
+ 635 052c B860C4E1 		.loc 1 255 0
+ 636              		strh	ip, [r4, #2]	@ movhi
+ 637 0530 B2C0C4E1 		.loc 1 256 0
+ 638              		ldrh	r0, [r3, #22]
+ 639 0534 B601D3E1 		.loc 1 261 0
+ 640              		ldr	r1, .L16+208
+ 641 0538 F0119FE5 		.loc 1 257 0
+ 642              		ldrh	r2, [r3, #24]
+ 643 053c B821D3E1 		.loc 1 258 0
+ 644              		ldrh	r6, [r3, #26]
+ 645 0540 BA61D3E1 		.loc 1 261 0
+ 646              		ldrh	ip, [r3, #36]
+ 647 0544 B4C2D3E1 		.loc 1 256 0
+ 648              		strh	r0, [r4, #0]	@ movhi
+ 649 0548 B000C4E1 		.loc 1 262 0
+ 650              		ldrh	r0, [r3, #38]
+ 651 054c B602D3E1 		.loc 1 257 0
+ 652              		strh	r2, [r4, #4]	@ movhi
+ 653 0550 B420C4E1 		.loc 1 258 0
+ 654              		strh	r6, [r4, #6]	@ movhi
+ 655 0554 B660C4E1 		.loc 1 263 0
+ 656              		ldrh	r2, [r3, #40]
+ 657 0558 B822D3E1 		.loc 1 264 0
+ 658              		ldrh	r6, [r3, #42]
+ 659 055c BA62D3E1 		.loc 1 261 0
+ 660              		strh	ip, [r1, #0]	@ movhi
+ 661 0560 B0C0C1E1 		.loc 1 262 0
+ 662              		strh	r0, [r1, #2]	@ movhi
+ 663 0564 B200C1E1 		.loc 1 265 0
+ 664              		ldrh	ip, [r3, #44]
+ 665 0568 BCC2D3E1 		.loc 1 266 0
+ 666              		ldrh	r0, [r3, #46]
+ 667 056c BE02D3E1 		.loc 1 263 0
+ 668              		strh	r2, [r1, #4]	@ movhi
+ 669 0570 B420C1E1 		.loc 1 264 0
+ 670              		strh	r6, [r1, #6]	@ movhi
+ 671 0574 B660C1E1 		.loc 1 267 0
+ 672              		ldrh	r2, [r3, #48]
+ 673 0578 B023D3E1 		.loc 1 268 0
+ 674              		ldrh	r6, [r3, #50]
+ 675 057c B263D3E1 		.loc 1 265 0
+ 676              		strh	ip, [r1, #8]	@ movhi
+ 677 0580 B8C0C1E1 		.loc 1 266 0
+ 678              		strh	r0, [r1, #10]	@ movhi
+ 679 0584 BA00C1E1 		.loc 1 269 0
+ 680              		ldrh	ip, [r3, #52]
+ 681 0588 B4C3D3E1 		.loc 1 270 0
+ 682              		ldrh	r0, [r3, #54]
+ 683 058c B603D3E1 		.loc 1 267 0
+ 684              		strh	r2, [r1, #12]	@ movhi
+ 685 0590 BC20C1E1 		.loc 1 268 0
+ 686              		strh	r6, [r1, #14]	@ movhi
+ 687 0594 BE60C1E1 		.loc 1 271 0
+ 688              		ldrh	r2, [r3, #56]
+ 689 0598 B823D3E1 		.loc 1 272 0
+ 690              		ldrh	r6, [r3, #58]
+ 691 059c BA63D3E1 		.loc 1 269 0
+ 692              		strh	ip, [r1, #16]	@ movhi
+ 693 05a0 B0C1C1E1 		.loc 1 270 0
+ 694              		strh	r0, [r1, #18]	@ movhi
+ 695 05a4 B201C1E1 		.loc 1 273 0
+ 696              		ldrh	ip, [r3, #60]
+ 697 05a8 BCC3D3E1 		.loc 1 274 0
+ 698              		ldrh	r0, [r3, #62]
+ 699 05ac BE03D3E1 		.loc 1 271 0
+ 700              		strh	r2, [r1, #20]	@ movhi
+ 701 05b0 B421C1E1 		.loc 1 272 0
+ 702              		strh	r6, [r1, #22]	@ movhi
+ 703 05b4 B661C1E1 		.loc 1 273 0
+ 704              		strh	ip, [r1, #24]	@ movhi
+ 705 05b8 B8C1C1E1 		.loc 1 274 0
+ 706              		strh	r0, [r1, #26]	@ movhi
+ 707 05bc BA01C1E1 		.loc 1 275 0
+ 708              		ldrh	r2, [r3, #64]
+ 709 05c0 B024D3E1 		strh	r2, [r1, #28]	@ movhi
+ 710 05c4 BC21C1E1 		.loc 1 286 0
+ 711              		ldr	r2, .L16
+ 712 05c8 90209FE5 		.loc 1 276 0
+ 713              		ldrh	r6, [r3, #66]
+ 714 05cc B264D3E1 		.loc 1 277 0
+ 715              		ldrh	ip, [r3, #68]
+ 716 05d0 B4C4D3E1 		.loc 1 286 0
+ 717              		ldrb	r0, [r2, #1]	@ zero_extendqisi2
+ 718 05d4 0100D2E5 		.loc 1 283 0
+ 719              		ldrb	r2, [r2, #0]	@ zero_extendqisi2
+ 720 05d8 0020D2E5 		.loc 1 276 0
+ 721              		strh	r6, [r1, #30]	@ movhi
+ 722 05dc BE61C1E1 		.loc 1 277 0
+ 723              		strh	ip, [r1, #32]	@ movhi
+ 724 05e0 B0C2C1E1 		.loc 1 280 0
+ 725              		ldrh	r6, [r3, #74]
+ 726 05e4 BA64D3E1 		.loc 1 283 0
+ 727              		ldr	ip, .L16
+ 728 05e8 70C09FE5 		.loc 1 286 0
+ 729              		cmp	r0, #0
+ 730 05ec 000050E3 		.loc 1 278 0
+ 731              		ldrh	r0, [r3, #70]
+ 732 05f0 B604D3E1 		.loc 1 279 0
+ 733              		ldrh	r3, [r3, #72]
+ 734 05f4 B834D3E1 		.loc 1 283 0
+ 735              		sub	r2, r2, #1
+ 736 05f8 012042E2 		.loc 1 280 0
+ 737              		strh	r6, [r1, #38]	@ movhi
+ 738 05fc B662C1E1 		.loc 1 283 0
+ 739              		strb	r2, [ip, #0]
+ 740 0600 0020CCE5 		.loc 1 278 0
+ 741              		strh	r0, [r1, #34]	@ movhi
+ 742 0604 B202C1E1 		.loc 1 279 0
+ 743              		strh	r3, [r1, #36]	@ movhi
+ 744 0608 B432C1E1 		.loc 1 283 0
+ 745              		mov	r5, ip
+ 746 060c 0C50A0E1 		.loc 1 286 0
+ 747              		bne	.L12
+ 748 0610 84FEFF1A 		.loc 1 290 0
+ 749              		ldr	r4, .L16+184
+ 750 0614 FC409FE5 		ldrb	r3, [r4, #1]	@ zero_extendqisi2
+ 751 0618 0130D4E5 		cmp	r3, #0
+ 752 061c 000053E3 		beq	.L12
+ 753 0620 80FEFF0A 		.loc 1 291 0
+ 754              		mov	r3, #1
+ 755 0624 0130A0E3 		strb	r3, [ip, #1]
+ 756 0628 0130CCE5 		.loc 1 296 0
+ 757              		bl	onboard_matlab_step1
+ 758 062c FEFFFFEB 		.loc 1 303 0
+ 759              		ldrb	r3, [r5, #1]	@ zero_extendqisi2
+ 760 0630 0130D5E5 		.loc 1 304 0
+ 761              		ldrb	r2, [r4, #1]	@ zero_extendqisi2
+ 762 0634 0120D4E5 		.loc 1 303 0
+ 763              		sub	r3, r3, #1
+ 764 0638 013043E2 		.loc 1 304 0
+ 765              		sub	r2, r2, #1
+ 766 063c 012042E2 		.loc 1 303 0
+ 767              		strb	r3, [r5, #1]
+ 768 0640 0130C5E5 		.loc 1 304 0
+ 769              		strb	r2, [r4, #1]
+ 770 0644 0120C4E5 		b	.L12
+ 771 0648 76FEFFEA 	.L15:
+ 772              		.loc 1 206 0
+ 773              		ldr	ip, .L16
+ 774 064c 0CC09FE5 		ldr	r0, [sp, #52]
+ 775 0650 34009DE5 		.loc 1 205 0
+ 776              		strb	r9, [ip, #0]
+ 777 0654 0090CCE5 		.loc 1 206 0
+ 778              		strb	r0, [ip, #1]
+ 779 0658 0100CCE5 		b	.L12
+ 780 065c 71FEFFEA 	.L17:
+ 781              		.align	2
+ 782              	.L16:
+ 783              		.word	OverrunFlags.1770
+ 784 0660 AA000000 		.word	RO_ALL_Data
+ 785 0664 00000000 		.word	onboard_matlab_U
+ 786 0668 00000000 		.word	matlab_params
+ 787 066c 00000000 		.word	uart_up_p_02
+ 788 0670 00000000 		.word	uart_up_p_01
+ 789 0674 00000000 		.word	uart_up_p_03
+ 790 0678 00000000 		.word	uart_up_p_04
+ 791 067c 00000000 		.word	uart_up_p_06
+ 792 0680 00000000 		.word	uart_up_p_05
+ 793 0684 00000000 		.word	uart_up_p_07
+ 794 0688 00000000 		.word	uart_up_p_08
+ 795 068c 00000000 		.word	uart_up_p_09
+ 796 0690 00000000 		.word	uart_up_p_10
+ 797 0694 00000000 		.word	uart_up_p_11
+ 798 0698 00000000 		.word	uart_up_p_12
+ 799 069c 00000000 		.word	uart_up_p_13
+ 800 06a0 00000000 		.word	uart_up_p_14
+ 801 06a4 00000000 		.word	uart_up_p_15
+ 802 06a8 00000000 		.word	uart_up_p_16
+ 803 06ac 00000000 		.word	uart_up_p_17
+ 804 06b0 00000000 		.word	uart_up_p_18
+ 805 06b4 00000000 		.word	uart_up_p_19
+ 806 06b8 00000000 		.word	uart_up_p_20
+ 807 06bc 00000000 		.word	uart_up_p_22
+ 808 06c0 00000000 		.word	uart_up_p_21
+ 809 06c4 00000000 		.word	uart_up_p_23
+ 810 06c8 00000000 		.word	uart_up_p_24
+ 811 06cc 00000000 		.word	uart_up_p_25
+ 812 06d0 00000000 		.word	uart_up_p_26
+ 813 06d4 00000000 		.word	uart_up_p_27
+ 814 06d8 00000000 		.word	uart_up_p_28
+ 815 06dc 00000000 		.word	uart_up_p_29
+ 816 06e0 00000000 		.word	uart_up_p_30
+ 817 06e4 00000000 		.word	uart_up_p_31
+ 818 06e8 00000000 		.word	uart_up_p_32
+ 819 06ec 00000000 		.word	uart_up_p_33
+ 820 06f0 00000000 		.word	uart_up_p_34
+ 821 06f4 00000000 		.word	uart_up_p_35
+ 822 06f8 00000000 		.word	uart_up_p_36
+ 823 06fc 00000000 		.word	uart_up_p_37
+ 824 0700 00000000 		.word	uart_up_p_38
+ 825 0704 00000000 		.word	matlab_uart
+ 826 0708 00000000 		.word	uart_up_p_39
+ 827 070c 00000000 		.word	uart_up_p_40
+ 828 0710 00000000 		.word	taskCounter.1772
+ 829 0714 A0000000 		.word	eventFlags.1771
+ 830 0718 A8000000 		.word	onboard_matlab_Y
+ 831 071c 00000000 		.word	WO_Direct_Individual_Motor_Control
+ 832 0720 00000000 		.word	WO_Direct_Motor_Control
+ 833 0724 00000000 		.word	WO_SDK
+ 834 0728 00000000 		.word	WO_CTRL_Input
+ 835 072c 00000000 		.word	matlab_debug
+ 836 0730 00000000 	.LFE2:
+ 838              		.global	uart_up_p_01
+ 839              		.bss
+ 840              		.align	2
+ 843              	uart_up_p_01:
+ 844              		.space	4
+ 845 0000 00000000 		.global	uart_up_p_02
+ 846              		.align	2
+ 849              	uart_up_p_02:
+ 850              		.space	4
+ 851 0004 00000000 		.global	uart_up_p_03
+ 852              		.align	2
+ 855              	uart_up_p_03:
+ 856              		.space	4
+ 857 0008 00000000 		.global	uart_up_p_04
+ 858              		.align	2
+ 861              	uart_up_p_04:
+ 862              		.space	4
+ 863 000c 00000000 		.global	uart_up_p_05
+ 864              		.align	2
+ 867              	uart_up_p_05:
+ 868              		.space	4
+ 869 0010 00000000 		.global	uart_up_p_06
+ 870              		.align	2
+ 873              	uart_up_p_06:
+ 874              		.space	4
+ 875 0014 00000000 		.global	uart_up_p_07
+ 876              		.align	2
+ 879              	uart_up_p_07:
+ 880              		.space	4
+ 881 0018 00000000 		.global	uart_up_p_08
+ 882              		.align	2
+ 885              	uart_up_p_08:
+ 886              		.space	4
+ 887 001c 00000000 		.global	uart_up_p_09
+ 888              		.align	2
+ 891              	uart_up_p_09:
+ 892              		.space	4
+ 893 0020 00000000 		.global	uart_up_p_10
+ 894              		.align	2
+ 897              	uart_up_p_10:
+ 898              		.space	4
+ 899 0024 00000000 		.global	uart_up_p_11
+ 900              		.align	2
+ 903              	uart_up_p_11:
+ 904              		.space	4
+ 905 0028 00000000 		.global	uart_up_p_12
+ 906              		.align	2
+ 909              	uart_up_p_12:
+ 910              		.space	4
+ 911 002c 00000000 		.global	uart_up_p_13
+ 912              		.align	2
+ 915              	uart_up_p_13:
+ 916              		.space	4
+ 917 0030 00000000 		.global	uart_up_p_14
+ 918              		.align	2
+ 921              	uart_up_p_14:
+ 922              		.space	4
+ 923 0034 00000000 		.global	uart_up_p_15
+ 924              		.align	2
+ 927              	uart_up_p_15:
+ 928              		.space	4
+ 929 0038 00000000 		.global	uart_up_p_16
+ 930              		.align	2
+ 933              	uart_up_p_16:
+ 934              		.space	4
+ 935 003c 00000000 		.global	uart_up_p_17
+ 936              		.align	2
+ 939              	uart_up_p_17:
+ 940              		.space	4
+ 941 0040 00000000 		.global	uart_up_p_18
+ 942              		.align	2
+ 945              	uart_up_p_18:
+ 946              		.space	4
+ 947 0044 00000000 		.global	uart_up_p_19
+ 948              		.align	2
+ 951              	uart_up_p_19:
+ 952              		.space	4
+ 953 0048 00000000 		.global	uart_up_p_20
+ 954              		.align	2
+ 957              	uart_up_p_20:
+ 958              		.space	4
+ 959 004c 00000000 		.global	uart_up_p_21
+ 960              		.align	2
+ 963              	uart_up_p_21:
+ 964              		.space	4
+ 965 0050 00000000 		.global	uart_up_p_22
+ 966              		.align	2
+ 969              	uart_up_p_22:
+ 970              		.space	4
+ 971 0054 00000000 		.global	uart_up_p_23
+ 972              		.align	2
+ 975              	uart_up_p_23:
+ 976              		.space	4
+ 977 0058 00000000 		.global	uart_up_p_24
+ 978              		.align	2
+ 981              	uart_up_p_24:
+ 982              		.space	4
+ 983 005c 00000000 		.global	uart_up_p_25
+ 984              		.align	2
+ 987              	uart_up_p_25:
+ 988              		.space	4
+ 989 0060 00000000 		.global	uart_up_p_26
+ 990              		.align	2
+ 993              	uart_up_p_26:
+ 994              		.space	4
+ 995 0064 00000000 		.global	uart_up_p_27
+ 996              		.align	2
+ 999              	uart_up_p_27:
+ 1000              		.space	4
+ 1001 0068 00000000 		.global	uart_up_p_28
+ 1002              		.align	2
+ 1005              	uart_up_p_28:
+ 1006              		.space	4
+ 1007 006c 00000000 		.global	uart_up_p_29
+ 1008              		.align	2
+ 1011              	uart_up_p_29:
+ 1012              		.space	4
+ 1013 0070 00000000 		.global	uart_up_p_30
+ 1014              		.align	2
+ 1017              	uart_up_p_30:
+ 1018              		.space	4
+ 1019 0074 00000000 		.global	uart_up_p_31
+ 1020              		.align	2
+ 1023              	uart_up_p_31:
+ 1024              		.space	4
+ 1025 0078 00000000 		.global	uart_up_p_32
+ 1026              		.align	2
+ 1029              	uart_up_p_32:
+ 1030              		.space	4
+ 1031 007c 00000000 		.global	uart_up_p_33
+ 1032              		.align	2
+ 1035              	uart_up_p_33:
+ 1036              		.space	4
+ 1037 0080 00000000 		.global	uart_up_p_34
+ 1038              		.align	2
+ 1041              	uart_up_p_34:
+ 1042              		.space	4
+ 1043 0084 00000000 		.global	uart_up_p_35
+ 1044              		.align	2
+ 1047              	uart_up_p_35:
+ 1048              		.space	4
+ 1049 0088 00000000 		.global	uart_up_p_36
+ 1050              		.align	2
+ 1053              	uart_up_p_36:
+ 1054              		.space	4
+ 1055 008c 00000000 		.global	uart_up_p_37
+ 1056              		.align	2
+ 1059              	uart_up_p_37:
+ 1060              		.space	4
+ 1061 0090 00000000 		.global	uart_up_p_38
+ 1062              		.align	2
+ 1065              	uart_up_p_38:
+ 1066              		.space	4
+ 1067 0094 00000000 		.global	uart_up_p_39
+ 1068              		.align	2
+ 1071              	uart_up_p_39:
+ 1072              		.space	4
+ 1073 0098 00000000 		.global	uart_up_p_40
+ 1074              		.align	2
+ 1077              	uart_up_p_40:
+ 1078              		.space	4
+ 1079 009c 00000000 		.align	2
+ 1080              	taskCounter.1772:
+ 1081              		.space	8
+ 1082 00a0 00000000 	eventFlags.1771:
+ 1082      00000000 
+ 1083              		.space	2
+ 1084 00a8 0000     	OverrunFlags.1770:
+ 1085              		.space	2
+ 1086 00aa 0000     		.comm	GPS_timeout,4,4
+ 1087              		.comm	SYSTEM_initialized,1,1
+ 1088              		.comm	parameter_beep,2,2
+ 1089              		.section	.debug_frame,"",%progbits
+ 1145              		.section	.debug_loc,"",%progbits
+DEFINED SYMBOLS
+                            *ABS*:00000000 ert_main.c
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:13     .text:00000000 rt_OneStep
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:20     .text:00000000 $a
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:784    .text:00000660 $d
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1085   .bss:000000aa OverrunFlags.1770
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:850    .bss:00000004 uart_up_p_02
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:844    .bss:00000000 uart_up_p_01
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:856    .bss:00000008 uart_up_p_03
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:862    .bss:0000000c uart_up_p_04
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:874    .bss:00000014 uart_up_p_06
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:868    .bss:00000010 uart_up_p_05
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:880    .bss:00000018 uart_up_p_07
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:886    .bss:0000001c uart_up_p_08
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:892    .bss:00000020 uart_up_p_09
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:898    .bss:00000024 uart_up_p_10
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:904    .bss:00000028 uart_up_p_11
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:910    .bss:0000002c uart_up_p_12
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:916    .bss:00000030 uart_up_p_13
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:922    .bss:00000034 uart_up_p_14
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:928    .bss:00000038 uart_up_p_15
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:934    .bss:0000003c uart_up_p_16
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:940    .bss:00000040 uart_up_p_17
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:946    .bss:00000044 uart_up_p_18
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:952    .bss:00000048 uart_up_p_19
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:958    .bss:0000004c uart_up_p_20
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:970    .bss:00000054 uart_up_p_22
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:964    .bss:00000050 uart_up_p_21
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:976    .bss:00000058 uart_up_p_23
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:982    .bss:0000005c uart_up_p_24
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:988    .bss:00000060 uart_up_p_25
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:994    .bss:00000064 uart_up_p_26
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1000   .bss:00000068 uart_up_p_27
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1006   .bss:0000006c uart_up_p_28
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1012   .bss:00000070 uart_up_p_29
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1018   .bss:00000074 uart_up_p_30
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1024   .bss:00000078 uart_up_p_31
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1030   .bss:0000007c uart_up_p_32
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1036   .bss:00000080 uart_up_p_33
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1042   .bss:00000084 uart_up_p_34
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1048   .bss:00000088 uart_up_p_35
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1054   .bss:0000008c uart_up_p_36
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1060   .bss:00000090 uart_up_p_37
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1066   .bss:00000094 uart_up_p_38
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1072   .bss:00000098 uart_up_p_39
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1078   .bss:0000009c uart_up_p_40
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1081   .bss:000000a0 taskCounter.1772
+C:\Users\Javid\AppData\Local\Temp/ccslcaaa.s:1083   .bss:000000a8 eventFlags.1771
+                            *COM*:00000004 GPS_timeout
+                            *COM*:00000001 SYSTEM_initialized
+                            *COM*:00000002 parameter_beep
+
+UNDEFINED SYMBOLS
+onboard_matlab_step0
+onboard_matlab_step1
+RO_ALL_Data
+onboard_matlab_U
+matlab_params
+matlab_uart
+onboard_matlab_Y
+WO_Direct_Individual_Motor_Control
+WO_Direct_Motor_Control
+WO_SDK
+WO_CTRL_Input
+matlab_debug

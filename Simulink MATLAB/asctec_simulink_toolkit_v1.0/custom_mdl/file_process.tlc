@@ -1,0 +1,22 @@
+
+%selectfile NULL_FILE
+
+
+%assign ERTCustomFileTest = TLC_TRUE
+
+%if EXISTS("ERTCustomFileTest") && ERTCustomFileTest == TLC_TRUE
+  
+  %% Need to set the template compliance flag before you can use the API
+  %<LibSetCodeTemplateComplianceLevel(1)>
+
+   %% Create a simple main.  Files are located in MATLAB/rtw/c/tlc/mw.
+  
+  %if LibIsSingleRateModel() || LibIsSingleTasking()
+   %include "OnboardMatlab.tlc"
+   %<FcnSingleTaskingMain()>
+  %else
+   %include "OnboardMatlab.tlc"
+   %<FcnMultiTaskingMain()>
+  %endif
+  
+%endif
