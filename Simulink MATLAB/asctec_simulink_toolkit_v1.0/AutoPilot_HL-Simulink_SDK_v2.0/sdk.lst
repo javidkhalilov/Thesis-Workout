@@ -1,0 +1,255 @@
+   1              		.file	"sdk.c"
+   9              	.Ltext0:
+  10              		.align	2
+  11              		.global	SDK_mainloop
+  13              	SDK_mainloop:
+  14              	.LFB2:
+  15              		.file 1 "sdk.c"
+   1:sdk.c         **** /*
+   2:sdk.c         **** 
+   3:sdk.c         **** AscTec AutoPilot HL SDK v2.0
+   4:sdk.c         **** 
+   5:sdk.c         **** Copyright (c) 2011, Ascending Technologies GmbH
+   6:sdk.c         **** All rights reserved.
+   7:sdk.c         **** 
+   8:sdk.c         **** Redistribution and use in source and binary forms, with or without
+   9:sdk.c         **** modification, are permitted provided that the following conditions are met:
+  10:sdk.c         **** 
+  11:sdk.c         ****  * Redistributions of source code must retain the above copyright notice,
+  12:sdk.c         ****    this list of conditions and the following disclaimer.
+  13:sdk.c         ****  * Redistributions in binary form must reproduce the above copyright
+  14:sdk.c         ****    notice, this list of conditions and the following disclaimer in the
+  15:sdk.c         ****    documentation and/or other materials provided with the distribution.
+  16:sdk.c         **** 
+  17:sdk.c         **** THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND ANY
+  18:sdk.c         **** EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  19:sdk.c         **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  20:sdk.c         **** DISCLAIMED. IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY
+  21:sdk.c         **** DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+  22:sdk.c         **** (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  23:sdk.c         **** SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  24:sdk.c         **** CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  25:sdk.c         **** LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+  26:sdk.c         **** OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+  27:sdk.c         **** DAMAGE.
+  28:sdk.c         **** 
+  29:sdk.c         ****  */
+  30:sdk.c         **** 
+  31:sdk.c         **** #include "main.h"
+  32:sdk.c         **** #include "sdk.h"
+  33:sdk.c         **** #include "LL_HL_comm.h"
+  34:sdk.c         **** #include "gpsmath.h"
+  35:sdk.c         **** #include "uart.h"
+  36:sdk.c         **** #include "system.h"
+  37:sdk.c         **** 
+  38:sdk.c         **** struct WO_SDK_STRUCT WO_SDK;
+  39:sdk.c         **** struct WO_CTRL_INPUT WO_CTRL_Input;
+  40:sdk.c         **** struct RO_RC_DATA RO_RC_Data;
+  41:sdk.c         **** struct RO_ALL_DATA RO_ALL_Data;
+  42:sdk.c         **** struct WO_DIRECT_MOTOR_CONTROL WO_Direct_Motor_Control;
+  43:sdk.c         **** struct WO_DIRECT_INDIVIDUAL_MOTOR_CONTROL WO_Direct_Individual_Motor_Control;
+  44:sdk.c         **** 
+  45:sdk.c         **** struct MATLAB_DEBUG matlab_debug;
+  46:sdk.c         **** struct MATLAB_UART matlab_uart, matlab_uart_tmp;
+  47:sdk.c         **** 
+  48:sdk.c         **** void SDK_EXAMPLE_direct_individual_motor_commands(void);
+  49:sdk.c         **** void SDK_EXAMPLE_direct_motor_commands_with_standard_output_mapping(void);
+  50:sdk.c         **** void SDK_EXAMPLE_attitude_commands(void);
+  51:sdk.c         **** void SDK_EXAMPLE_gps_waypoint_control(void);
+  52:sdk.c         **** int SDK_EXAMPLE_turn_motors_on(void);
+  53:sdk.c         **** int SDK_EXAMPLE_turn_motors_off(void);
+  54:sdk.c         **** 
+  55:sdk.c         **** /* SDK_mainloop(void) is triggered @ 1kHz.
+  56:sdk.c         ****  *
+  57:sdk.c         ****  * RO_(Read Only) data is updated before entering this function
+  58:sdk.c         ****  * and can be read to obtain information for supervision or control
+  59:sdk.c         ****  *
+  60:sdk.c         ****  * WO_(Write Only) data is written to the LL processor after
+  61:sdk.c         ****  * execution of this function.
+  62:sdk.c         ****  *
+  63:sdk.c         ****  * WO_ and RO_ structs are defined in sdk.h
+  64:sdk.c         ****  *
+  65:sdk.c         ****  * The struct RO_ALL_Data (defined in sdk.h)
+  66:sdk.c         ****  * is used to read all sensor data, results of the data fusion
+  67:sdk.c         ****  * and R/C inputs transmitted from the LL-processor. This struct is
+  68:sdk.c         ****  * automatically updated at 1 kHz.
+  69:sdk.c         ****  * */
+  70:sdk.c         **** 
+  71:sdk.c         **** /* How to flash the high level processor
+  72:sdk.c         ****  *
+  73:sdk.c         ****  * The easiest way to get your code on the high level processor is to use the JTAG-adapter.
+  74:sdk.c         ****  *
+  75:sdk.c         ****  * It needs three steps to get your code on the high level processor.
+  76:sdk.c         ****  * 1. Build your code ("Build Project")
+  77:sdk.c         ****  * 2. Connect your JTAG adapter and start the JTAG connection ("OpenOCD Asctec-JTAG")
+  78:sdk.c         ****  * 3. Flash the processor ("Asctec JTAG Debug")
+  79:sdk.c         ****  *
+  80:sdk.c         ****  * In the menu "Run -> External Tools -> External Tools Configuration..." you
+  81:sdk.c         ****  * will find "OpenOCD Asctec-JTAG". If the JTAG connection was activated
+  82:sdk.c         ****  * correctly, the console will show only the following line:
+  83:sdk.c         ****  * "Info:    openocd.c:92 main(): Open On-Chip Debugger (2007-08-10 22:30 CEST)"
+  84:sdk.c         ****  *
+  85:sdk.c         ****  * Do not launch more than ONE JTAG-connection at the same time!
+  86:sdk.c         ****  *
+  87:sdk.c         ****  * In the menu "Run -> Debug Configurations..." you will find "Asctec JTAG Debug"
+  88:sdk.c         ****  * If the code was successfully flashed on the processor, the program will switch
+  89:sdk.c         ****  * to the Debug window.
+  90:sdk.c         ****  *************
+  91:sdk.c         ****  * If you want to flash the high level processor using a serial interface (AscTec USB adapter)
+  92:sdk.c         ****  * and bootloader software like "Flash Magic", you need to change
+  93:sdk.c         ****  * the following in the "makefile" (line 113):
+  94:sdk.c         ****  *
+  95:sdk.c         ****  * FORMAT = ihex
+  96:sdk.c         ****  * #FORMAT = binary
+  97:sdk.c         ****  *
+  98:sdk.c         ****  * After buidling your code you will find the main.hex in your workspace folder.
+  99:sdk.c         ****  *************
+ 100:sdk.c         ****  * */
+ 101:sdk.c         **** 
+ 102:sdk.c         **** /* After flashing the HL, your code can be debugged online. The ARM7 supports ONE hardware breakpoi
+ 103:sdk.c         ****  * You can monitor the CPU-load by looking at HL_Status.cpu_load. As long as this value is 1000 you
+ 104:sdk.c         ****  * code in SDK_mainloop() is executed at 1 kHz.
+ 105:sdk.c         ****  *
+ 106:sdk.c         ****  * To activate the SDK controls, the serial interface switch on your R/C (channel 5) needs to be in
+ 107:sdk.c         ****  *
+ 108:sdk.c         ****  * If your project needs communication over a serial link, you find an example of how to do so in m
+ 109:sdk.c         ****  * All sample functions for transmitting and receiving data over the UART (HL_serial_0) are in uart
+ 110:sdk.c         ****  * these examples to code your own communication state machine.
+ 111:sdk.c         ****  */
+ 112:sdk.c         **** 
+ 113:sdk.c         **** 
+ 114:sdk.c         **** void SDK_mainloop(void) //write your own code within this function
+ 115:sdk.c         **** {
+  16              	@ Function supports interworking.
+  17              		@ args = 0, pretend = 0, frame = 0
+  18              		@ frame_needed = 0, uses_anonymous_args = 0
+  19              		stmfd	sp!, {r4, lr}
+  20 0000 10402DE9 	.LCFI0:
+  21              		.loc 1 134 0
+ 116:sdk.c         **** 	static unsigned short uart_count = 1; //counter for uart communication
+ 117:sdk.c         **** 
+ 118:sdk.c         **** 	//WO_SDK.ctrl_mode=0x00;	//0x00: direct individual motor control: individual commands for motors 0
+ 119:sdk.c         **** 							//0x01: direct motor control using standard output mapping: commands are interpreted as pitc
+ 120:sdk.c         **** 							//0x02: attitude and throttle control: commands are input for standard attitude controller
+ 121:sdk.c         **** 							//0x03: GPS waypoint control
+ 122:sdk.c         **** 
+ 123:sdk.c         **** 	//WO_SDK.ctrl_enabled=1;  //0: disable control by HL processor
+ 124:sdk.c         **** 							//1: enable control by HL processor
+ 125:sdk.c         **** 
+ 126:sdk.c         **** 	//WO_SDK.disable_motor_onoff_by_stick=0;
+ 127:sdk.c         **** 
+ 128:sdk.c         **** 	rt_OneStep(); //call RTW function rt_OneStep
+ 129:sdk.c         **** 	//ctrl_mode is set in tr_one_step
+ 130:sdk.c         **** 
+ 131:sdk.c         **** 
+ 132:sdk.c         **** 
+ 133:sdk.c         **** 
+ 134:sdk.c         **** 	if (uart_count==0 && xbee_send_flag) //call function for uart transmission with 50 Hz
+  22              	4, .L8
+  23 0004 78409FE5 		.loc 1 128 0
+  24              		bl	rt_OneStep
+  25 0008 FEFFFFEB 		.loc 1 134 0
+  26              		ldrh	r3, [r4, #0]
+  27 000c B030D4E1 		cmp	r3, #0
+  28 0010 000053E3 		bne	.L2
+  29 0014 0800001A 		ldr	r3, .L8+4
+  30 0018 68309FE5 		ldrb	r2, [r3, #0]	@ zero_extendqisi2
+  31 001c 0020D3E5 		.loc 1 136 0
+ 135:sdk.c         **** 	{
+ 136:sdk.c         **** 		matlab_debug.cpu_load = HL_Status.cpu_load;
+  32              	L8+8
+  33 0020 64309FE5 		.loc 1 134 0
+  34              		cmp	r2, #0
+  35 0024 000052E3 		.loc 1 136 0
+  36              		ldr	ip, .L8+12
+  37 0028 60C09FE5 		.loc 1 139 0
+ 137:sdk.c         **** 		matlab_debug.battery_voltage = HL_Status.battery_voltage_1;
+ 138:sdk.c         **** 
+ 139:sdk.c         **** 		UART0_SendPacket(&matlab_debug, sizeof(matlab_debug), 'd');
+  38              	0, r3
+  39 002c 0300A0E1 		mov	r1, #44
+  40 0030 2C10A0E3 		mov	r2, #100
+  41 0034 6420A0E3 		.loc 1 134 0
+  42              		bne	.L7
+  43 0038 0B00001A 	.L2:
+  44              		.loc 1 142 0
+ 140:sdk.c         **** 	}
+ 141:sdk.c         **** 	uart_count++;
+ 142:sdk.c         **** 	uart_count%=ControllerCyclesPerSecond/50;
+  45              	3, [r4, #0]
+  46 003c B030D4E1 		add	r3, r3, #1
+  47 0040 013083E2 		mov	r3, r3, asl #16
+  48 0044 0338A0E1 		ldr	r1, .L8+16
+  49 0048 44109FE5 		mov	r3, r3, lsr #16
+  50 004c 2338A0E1 		umull	r0, r2, r1, r3
+  51 0050 910382E0 		mov	r2, r2, lsr #4
+  52 0054 2222A0E1 		add	r2, r2, r2, asl #2
+  53 0058 022182E0 		sub	r3, r3, r2, asl #2
+  54 005c 023143E0 		strh	r3, [r4, #0]	@ movhi
+  55 0060 B030C4E1 		.loc 1 143 0
+ 143:sdk.c         **** }
+  56              	 {r4, lr}
+  57 0064 1040BDE8 		bx	lr
+  58 0068 1EFF2FE1 	.L7:
+  59              		.loc 1 137 0
+  60              		ldrh	lr, [ip, #0]
+  61 006c B0E0DCE1 		.loc 1 136 0
+  62              		ldrh	ip, [ip, #18]
+  63 0070 B2C1DCE1 		.loc 1 137 0
+  64              		strh	lr, [r3, #42]	@ movhi
+  65 0074 BAE2C3E1 		.loc 1 136 0
+  66              		strh	ip, [r3, #40]	@ movhi
+  67 0078 B8C2C3E1 		.loc 1 139 0
+  68              		bl	UART0_SendPacket
+  69 007c FEFFFFEB 		b	.L2
+  70 0080 EDFFFFEA 	.L9:
+  71              		.align	2
+  72              	.L8:
+  73              		.word	uart_count.1656
+  74 0084 00000000 		.word	xbee_send_flag
+  75 0088 00000000 		.word	matlab_debug
+  76 008c 00000000 		.word	HL_Status
+  77 0090 00000000 		.word	-858993459
+  78 0094 CDCCCCCC 	.LFE2:
+  80              		.data
+  81              		.align	1
+  84              	uart_count.1656:
+  85              		.short	1
+  86 0000 0100     		.comm	GPS_timeout,4,4
+  87              		.comm	SYSTEM_initialized,1,1
+  88              		.comm	parameter_beep,2,2
+  89              		.comm	matlab_debug,44,4
+  90              		.comm	matlab_uart,28,4
+  91              		.comm	matlab_uart_tmp,28,4
+  92              		.comm	WO_SDK,4,4
+  93              		.comm	RO_ALL_Data,140,4
+  94              		.comm	RO_RC_Data,16,4
+  95              		.comm	WO_Direct_Individual_Motor_Control,8,4
+  96              		.comm	WO_Direct_Motor_Control,4,4
+  97              		.comm	WO_CTRL_Input,12,4
+  98              		.section	.debug_frame,"",%progbits
+ 134              		.section	.debug_loc,"",%progbits
+DEFINED SYMBOLS
+                            *ABS*:00000000 sdk.c
+C:/Users/Javid/AppData/Local/Temp/ccsvcaaa.s:13     .text:00000000 SDK_mainloop
+C:/Users/Javid/AppData/Local/Temp/ccsvcaaa.s:20     .text:00000000 $a
+C:/Users/Javid/AppData/Local/Temp/ccsvcaaa.s:74     .text:00000084 $d
+C:/Users/Javid/AppData/Local/Temp/ccsvcaaa.s:85     .data:00000000 uart_count.1656
+                            *COM*:0000002c matlab_debug
+                            *COM*:00000004 GPS_timeout
+                            *COM*:00000001 SYSTEM_initialized
+                            *COM*:00000002 parameter_beep
+                            *COM*:0000001c matlab_uart
+                            *COM*:0000001c matlab_uart_tmp
+                            *COM*:00000004 WO_SDK
+                            *COM*:0000008c RO_ALL_Data
+                            *COM*:00000010 RO_RC_Data
+                            *COM*:00000008 WO_Direct_Individual_Motor_Control
+                            *COM*:00000004 WO_Direct_Motor_Control
+                            *COM*:0000000c WO_CTRL_Input
+
+UNDEFINED SYMBOLS
+rt_OneStep
+UART0_SendPacket
+xbee_send_flag
+HL_Status
